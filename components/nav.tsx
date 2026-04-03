@@ -3,7 +3,7 @@ import { ThemeToggle } from "./theme-toggle"
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between px-8 py-6 bg-[rgba(244,239,230,0.6)] dark:bg-[rgba(26,23,20,0.6)] backdrop-blur-[14px] [-webkit-backdrop-filter:blur(14px)]">
+    <header className="sticky top-0 z-50 flex items-center justify-between px-8 py-6 backdrop-blur-[14px] [-webkit-backdrop-filter:blur(14px)]">
       <Link
         href="/"
         className="font-serif text-sm tracking-wide text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors"
