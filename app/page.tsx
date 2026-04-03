@@ -17,7 +17,7 @@ export default function Home() {
       <div className="flex flex-col gap-12 flex-1 min-h-0">
         <div className="flex flex-col gap-2">
           <h1 className="font-serif text-4xl md:text-5xl text-stone-900 dark:text-stone-100">
-            Gabriel René Rodríguez-Rovira
+            Gabriel René <span className="whitespace-nowrap">Rodríguez-Rovira</span>
           </h1>
           <p className="text-stone-500 dark:text-stone-400 text-lg">
             Digital Strategy & Technology Director

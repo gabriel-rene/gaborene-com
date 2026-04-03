@@ -104,6 +104,22 @@ export default function About() {
           <ul className="flex flex-col gap-2">
             {[
               {
+                source: "The World (PRI)",
+                title: "Please help",
+                url: "https://theworld.org/stories/2017/10/11/please-help-headline",
+                year: "2017",
+                contribution:
+                  "Ground liaison — sourced communities, interview subjects, and government contacts for international press coverage of Hurricane María.",
+              },
+              {
+                source: "New York Magazine / Intelligencer",
+                title: "Hurricane Maria: A Man-Made Disaster",
+                url: "https://nymag.com/intelligencer/2017/12/hurricane-maria-man-made-disaster.html",
+                year: "2017",
+                contribution:
+                  "Ground liaison — sourced communities, interview subjects, and government contacts for international press coverage of Hurricane María.",
+              },
+              {
                 source: "News is My Business",
                 title:
                   "Creativity and tech are 'key to present, future evolution' of brands",
@@ -136,7 +152,7 @@ export default function About() {
                 url: "https://wapa.tv/noticias/negocios/asociaci-n-de-relacionistas-de-puerto-rico-anuncia-su-convenci-n-anual-2025/article_2bfc035b-662a-4c00-9f27-23905de97527.html",
                 year: "2025",
               },
-            ].map(({ source, title, url, year }) => (
+            ].map(({ source, title, url, year, contribution }) => (
               <li key={url}>
                 <a
                   href={url}
@@ -150,6 +166,11 @@ export default function About() {
                   <span className="text-sm text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 transition-colors leading-snug">
                     {title}
                   </span>
+                  {contribution && (
+                    <span className="text-xs text-stone-400 dark:text-stone-600 leading-snug mt-0.5">
+                      {contribution}
+                    </span>
+                  )}
                 </a>
               </li>
             ))}
