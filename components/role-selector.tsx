@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import identities, { type Identity } from "@/data/identities"
+import { SpeakingGallery } from "@/components/speaking-gallery"
 
 export function RoleSelector() {
   const [active, setActive] = useState<Identity | null>(null)
@@ -56,6 +57,7 @@ export function RoleSelector() {
                   ))}
                 </ul>
               )}
+              {active.role === "educator on AI" && <SpeakingGallery />}
             </motion.div>
           )}
         </AnimatePresence>
