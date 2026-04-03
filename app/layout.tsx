@@ -1,15 +1,30 @@
 import type { Metadata } from "next"
-import { Instrument_Serif } from "next/font/google"
+import localFont from "next/font/local"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Nav } from "@/components/nav"
 import { SiteStructuredData } from "@/components/structured-data"
 import "./globals.css"
 
-const instrumentSerif = Instrument_Serif({
-  weight: ["400"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-instrument-serif",
+const kyoto = localFont({
+  src: [
+    { path: "../public/fonts/PPKyoto-Light.otf", weight: "300", style: "normal" },
+    { path: "../public/fonts/PPKyoto-LightItalic.otf", weight: "300", style: "italic" },
+    { path: "../public/fonts/PPKyoto-Medium.otf", weight: "500", style: "normal" },
+    { path: "../public/fonts/PPKyoto-MediumItalic.otf", weight: "500", style: "italic" },
+    { path: "../public/fonts/PPKyoto-Extrabold.otf", weight: "800", style: "normal" },
+    { path: "../public/fonts/PPKyoto-ExtraboldItalic.otf", weight: "800", style: "italic" },
+  ],
+  variable: "--font-kyoto",
+})
+
+const neueYork = localFont({
+  src: [
+    { path: "../public/fonts/PPNeueYork-NormalLight.otf", weight: "300", style: "normal" },
+    { path: "../public/fonts/PPNeueYork-NormalLightItalic.otf", weight: "300", style: "italic" },
+    { path: "../public/fonts/PPNeueYork-NormalMedium.otf", weight: "500", style: "normal" },
+    { path: "../public/fonts/PPNeueYork-NormalMediumItalic.otf", weight: "500", style: "italic" },
+  ],
+  variable: "--font-neue-york",
 })
 
 export const metadata: Metadata = {
@@ -86,7 +101,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} h-full antialiased`}
+      className={`${kyoto.variable} ${neueYork.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-stone-100 dark:bg-stone-900 text-stone-900 dark:text-stone-100 transition-colors">
