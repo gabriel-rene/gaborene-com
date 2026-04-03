@@ -5,28 +5,28 @@
 @theme inline {
   --font-serif: var(--font-instrument-serif);
 
-  /* Brand stone scale — light: #E0D8DE family, dark: #2A1F27 family */
-  --color-stone-50:  #EDE8EC;
-  --color-stone-100: #E0D8DE;
-  --color-stone-200: #C8BEC6;
-  --color-stone-300: #B0A3AD;
-  --color-stone-400: #988694;
-  --color-stone-500: #7E6C7A;
-  --color-stone-600: #5E4C5A;
-  --color-stone-700: #4A3A46;
-  --color-stone-800: #362831;
-  --color-stone-900: #2A1F27;
-  --color-stone-950: #1E1520;
+  /* Brand stone scale — light: #E0D7D7 family, dark: #2A1F1F family */
+  --color-stone-50:  #ECE5E5;
+  --color-stone-100: #E0D7D7;
+  --color-stone-200: #CABDBD;
+  --color-stone-300: #B3A3A3;
+  --color-stone-400: #9C8989;
+  --color-stone-500: #856F6F;
+  --color-stone-600: #634F4F;
+  --color-stone-700: #4D3B3B;
+  --color-stone-800: #3A2B2B;
+  --color-stone-900: #2A1F1F;
+  --color-stone-950: #1C1515;
 }
 
 :root {
-  --background: #E0D8DE;
-  --foreground: #2A1F27;
+  --background: #E0D7D7;
+  --foreground: #2A1F1F;
 }
 
 .dark {
-  --background: #2A1F27;
-  --foreground: #E0D8DE;
+  --background: #2A1F1F;
+  --foreground: #E0D7D7;
 }
 
 body {
