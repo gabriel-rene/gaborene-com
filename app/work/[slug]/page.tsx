@@ -17,8 +17,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const study = caseStudies.find((s) => s.slug === slug)
   if (!study) return {}
   return {
-    title: `${study.title} — Gabriel René Rodríguez-Rovira`,
+    title: study.title,
     description: study.summary,
+    openGraph: {
+      title: `${study.title} — Gabriel René Rodríguez-Rovira`,
+      description: study.summary,
+      url: `https://gaborene.com/work/${slug}`,
+    },
+    alternates: {
+      canonical: `https://gaborene.com/work/${slug}`,
+    },
   }
 }
 
@@ -27,8 +35,54 @@ export default async function CaseStudy({ params }: Props) {
   const study = caseStudies.find((s) => s.slug === slug)
   if (!study) notFound()
 
+  const caseStudySchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "@id": `https://gaborene.com/work/${study.slug}`,
+    url: `https://gaborene.com/work/${study.slug}`,
+    name: study.title,
+    description: study.summary,
+    author: { "@id": "https://gaborene.com/#person" },
+    dateCreated: String(study.year),
+    genre: study.category,
+    locationCreated: {
+      "@type": "AdministrativeArea",
+      name: "Puerto Rico",
+    },
+    ...(study.awards && study.awards.length > 0
+      ? { award: study.awards }
+      : {}),
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://gaborene.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Work",
+          item: "https://gaborene.com/work",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: study.title,
+          item: `https://gaborene.com/work/${study.slug}`,
+        },
+      ],
+    },
+  }
+
   return (
     <main className="flex flex-col flex-1 px-8 pt-32 pb-16 max-w-3xl mx-auto w-full">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }}
+      />
       <div className="flex flex-col gap-10">
         <Link
           href="/work"

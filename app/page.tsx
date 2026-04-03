@@ -1,4 +1,15 @@
+import type { Metadata } from "next"
 import { RoleSelector } from "@/components/role-selector"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://gaborene.com",
+  },
+  openGraph: {
+    url: "https://gaborene.com",
+    type: "profile",
+  },
+}
 
 export default function Home() {
   return (

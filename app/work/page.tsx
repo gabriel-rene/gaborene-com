@@ -5,9 +5,18 @@ import { ExternalLink } from "lucide-react"
 import caseStudies from "@/data/work"
 
 export const metadata: Metadata = {
-  title: "Work — Gabriel René Rodríguez-Rovira",
+  title: "Work",
   description:
-    "Selected case studies in digital strategy and creative technology.",
+    "Selected case studies in digital strategy, creative technology, and AI-driven campaigns. Award-winning work from Puerto Rico — Cannes Lions, Effie, El Ojo de Iberoamérica, FIAP, and more.",
+  openGraph: {
+    title: "Work — Gabriel René Rodríguez-Rovira",
+    description:
+      "Selected case studies in digital strategy, creative technology, and AI-driven campaigns. Award-winning work from Puerto Rico — Cannes Lions, Effie, El Ojo de Iberoamérica, FIAP, and more.",
+    url: "https://gaborene.com/work",
+  },
+  alternates: {
+    canonical: "https://gaborene.com/work",
+  },
 }
 
 const PLAYLIST_URL =
@@ -15,12 +24,44 @@ const PLAYLIST_URL =
 
 const FEATURED_SLUGS = ["pasaporte-aventura", "eyetracker"]
 
+const workPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://gaborene.com/work",
+  url: "https://gaborene.com/work",
+  name: "Work — Gabriel René Rodríguez-Rovira",
+  description:
+    "Selected case studies in digital strategy, creative technology, and AI-driven campaigns from Puerto Rico.",
+  author: { "@id": "https://gaborene.com/#person" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://gaborene.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Work",
+        item: "https://gaborene.com/work",
+      },
+    ],
+  },
+}
+
 export default function Work() {
   const featured = caseStudies.filter((s) => FEATURED_SLUGS.includes(s.slug))
   const rest = caseStudies.filter((s) => !FEATURED_SLUGS.includes(s.slug))
 
   return (
     <main className="flex flex-col flex-1 px-8 pt-32 pb-16 max-w-5xl mx-auto w-full">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(workPageSchema) }}
+      />
       <div className="flex flex-col gap-12">
         <div className="flex items-end justify-between">
           <h1 className="font-serif text-4xl md:text-5xl text-stone-900 dark:text-stone-100">
