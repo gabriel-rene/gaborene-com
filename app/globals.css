@@ -3,29 +3,29 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-serif: var(--font-kyoto);
+  --font-serif: var(--font-editorial-old);
 
-  /* Brand stone scale — light: #E0D7D7 family, dark: #2A1F1F family */
-  --color-stone-50:  #ECE5E5;
+  /* Brand stone scale — light: #E0D7D7 family, dark: #312424 family */
+  --color-stone-50:  #EAE3E3;
   --color-stone-100: #E0D7D7;
-  --color-stone-200: #CABDBD;
-  --color-stone-300: #B3A3A3;
-  --color-stone-400: #9C8989;
-  --color-stone-500: #856F6F;
-  --color-stone-600: #634F4F;
-  --color-stone-700: #4D3B3B;
-  --color-stone-800: #3A2B2B;
-  --color-stone-900: #2A1F1F;
-  --color-stone-950: #1C1515;
+  --color-stone-200: #CAB9B9;
+  --color-stone-300: #B3A0A0;
+  --color-stone-400: #9C8787;
+  --color-stone-500: #846E6E;
+  --color-stone-600: #635050;
+  --color-stone-700: #4E3C3C;
+  --color-stone-800: #3C2D2D;
+  --color-stone-900: #312424;
+  --color-stone-950: #201818;
 }
 
 :root {
   --background: #E0D7D7;
-  --foreground: #2A1F1F;
+  --foreground: #312424;
 }
 
 .dark {
-  --background: #2A1F1F;
+  --background: #312424;
   --foreground: #E0D7D7;
 }
 
@@ -33,4 +33,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-neue-york);
+  font-weight: 300;
 }

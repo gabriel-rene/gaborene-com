@@ -5,16 +5,16 @@ import { Nav } from "@/components/nav"
 import { SiteStructuredData } from "@/components/structured-data"
 import "./globals.css"
 
-const kyoto = localFont({
+const editorialOld = localFont({
   src: [
-    { path: "../public/fonts/PPKyoto-Light.otf", weight: "300", style: "normal" },
-    { path: "../public/fonts/PPKyoto-LightItalic.otf", weight: "300", style: "italic" },
-    { path: "../public/fonts/PPKyoto-Medium.otf", weight: "500", style: "normal" },
-    { path: "../public/fonts/PPKyoto-MediumItalic.otf", weight: "500", style: "italic" },
-    { path: "../public/fonts/PPKyoto-Extrabold.otf", weight: "800", style: "normal" },
-    { path: "../public/fonts/PPKyoto-ExtraboldItalic.otf", weight: "800", style: "italic" },
+    { path: "../public/fonts/PPEditorialOld-Ultralight.otf", weight: "200", style: "normal" },
+    { path: "../public/fonts/PPEditorialOld-UltralightItalic.otf", weight: "200", style: "italic" },
+    { path: "../public/fonts/PPEditorialOld-Regular.otf", weight: "400", style: "normal" },
+    { path: "../public/fonts/PPEditorialOld-Italic.otf", weight: "400", style: "italic" },
+    { path: "../public/fonts/PPEditorialOld-Bold.otf", weight: "700", style: "normal" },
+    { path: "../public/fonts/PPEditorialOld-BoldItalic.otf", weight: "700", style: "italic" },
   ],
-  variable: "--font-kyoto",
+  variable: "--font-editorial-old",
 })
 
 const neueYork = localFont({
@@ -31,11 +31,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://gaborene.com"),
   title: {
     default:
-      "Gabriel René Rodríguez-Rovira — Digital Strategy & Technology Director",
-    template: "%s — Gabriel René Rodríguez-Rovira",
+      "Gabriel René Rodríguez-Rovira | Digital Strategy & Technology Director",
+    template: "%s | Gabriel René Rodríguez-Rovira",
   },
   description:
-    "Digital Strategy & Technology Director based in Puerto Rico. Speaker and educator on AI strategy and human-centered design. Award-winning advertising professional — Cannes Lions, Effie, El Ojo de Iberoamérica.",
+    "Digital Strategy & Technology Director based in Puerto Rico. Speaker and educator on AI strategy and human-centered design. Award-winning advertising professional | Cannes Lions, Effie, El Ojo de Iberoamérica.",
   keywords: [
     "AI Puerto Rico",
     "artificial intelligence Puerto Rico",
@@ -66,14 +66,14 @@ export const metadata: Metadata = {
     url: "https://gaborene.com",
     siteName: "Gabriel René Rodríguez-Rovira",
     title:
-      "Gabriel René Rodríguez-Rovira — Digital Strategy & Technology Director",
+      "Gabriel René Rodríguez-Rovira | Digital Strategy & Technology Director",
     description:
-      "Digital Strategy & Technology Director based in Puerto Rico. Speaker and educator on AI strategy and human-centered design. Award-winning advertising professional — Cannes Lions, Effie, El Ojo de Iberoamérica.",
+      "Digital Strategy & Technology Director based in Puerto Rico. Speaker and educator on AI strategy and human-centered design. Award-winning advertising professional | Cannes Lions, Effie, El Ojo de Iberoamérica.",
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Gabriel René Rodríguez-Rovira — Digital Strategy & Technology Director",
+      "Gabriel René Rodríguez-Rovira | Digital Strategy & Technology Director",
     description:
       "Digital Strategy & Technology Director based in Puerto Rico. Speaker and educator on AI strategy and human-centered design.",
   },
@@ -101,7 +101,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${kyoto.variable} ${neueYork.variable} h-full antialiased`}
+      className={`${editorialOld.variable} ${neueYork.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-stone-100 dark:bg-stone-900 text-stone-900 dark:text-stone-100 transition-colors">

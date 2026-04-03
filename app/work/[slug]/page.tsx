@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: study.title,
     description: study.summary,
     openGraph: {
-      title: `${study.title} — Gabriel René Rodríguez-Rovira`,
+      title: `${study.title} | Gabriel René Rodríguez-Rovira`,
       description: study.summary,
       url: `https://gaborene.com/work/${slug}`,
     },
@@ -94,7 +94,7 @@ export default async function CaseStudy({ params }: Props) {
 
         <div className="flex flex-col gap-3">
           <p className="text-sm text-stone-400 dark:text-stone-600 uppercase tracking-widest">
-            {study.client} — {study.year}
+            {study.client}, {study.year}
           </p>
           <h1 className="font-serif text-4xl md:text-5xl text-stone-900 dark:text-stone-100">
             {study.title}

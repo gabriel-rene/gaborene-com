@@ -48,14 +48,14 @@ const person = {
       "Digital Strategy, AI Strategy, AI Education, Advertising, Creative Technology",
   },
   award: [
-    "Cannes Lions Gold — Mobile Technology / mCommerce",
-    "Cannes Lions Bronze — Creative Commerce",
-    "Cannes Lions Bronze — Mobile Website",
-    "El Ojo de Iberoamérica — Gran Ojo Digital & Social",
-    "FIAP Gold — Technological Innovation",
-    "The One Show Bronze Pencil — Personalized Digital",
-    "Effie Awards Latin America — Finalist",
-    "LUUM Awards — Grand Prix",
+    "Cannes Lions Gold, Mobile Technology / mCommerce",
+    "Cannes Lions Bronze, Creative Commerce",
+    "Cannes Lions Bronze, Mobile Website",
+    "El Ojo de Iberoamérica, Gran Ojo Digital & Social",
+    "FIAP Gold, Technological Innovation",
+    "The One Show Bronze Pencil, Personalized Digital",
+    "Effie Awards Latin America, Finalist",
+    "LUUM Awards, Grand Prix",
   ],
   performerIn: [
     {
@@ -81,7 +81,7 @@ const person = {
       name: "AI Panelist and Curriculum Development Consultant",
       organizer: {
         "@type": "EducationalOrganization",
-        name: "University of Puerto Rico — Faculty of Communication Studies",
+        name: "University of Puerto Rico, Faculty of Communication Studies",
         address: { "@type": "PostalAddress", addressRegion: "Puerto Rico" },
       },
     },
@@ -103,7 +103,7 @@ const person = {
     },
     {
       "@type": "Event",
-      name: "AI Speaker — Puerto Rico Next Tourism Summit",
+      name: "AI Speaker, Puerto Rico Next Tourism Summit",
       organizer: {
         "@type": "Organization",
         name: "Puerto Rico Next Tourism Summit",
@@ -112,7 +112,7 @@ const person = {
     },
     {
       "@type": "Event",
-      name: "Recurrent AI Speaker — Chamber of Commerce SMB Forums",
+      name: "Recurrent AI Speaker, Chamber of Commerce SMB Forums",
       organizer: {
         "@type": "Organization",
         name: "Puerto Rico Chamber of Commerce",
@@ -121,12 +121,12 @@ const person = {
     },
     {
       "@type": "Event",
-      name: "AI Guest — Podcast ADQLEB with Alberto Deida",
+      name: "AI Guest, Podcast ADQLEB with Alberto Deida",
       organizer: { "@type": "Organization", name: "ADQLEB Podcast" },
     },
     {
       "@type": "Event",
-      name: "AI Guest — Podcast Neptuno Networks The Orbit",
+      name: "AI Guest, Podcast Neptuno Networks The Orbit",
       organizer: { "@type": "Organization", name: "Neptuno Networks" },
     },
   ],
@@ -182,8 +182,8 @@ const person = {
       name: "The Eye Tracker",
       url: "https://www.ogilvy.com/work/eye-tracker",
       description:
-        "A geo-referenced mobile tool built on National Hurricane Center storm data — the first street view of a hurricane's projected path, replacing panic buying with personalized supply lists.",
-      award: "Cannes Lions Gold — Mobile Technology / mCommerce, 2022",
+        "A geo-referenced mobile tool built on National Hurricane Center storm data, the first street view of a hurricane's projected path, replacing panic buying with personalized supply lists.",
+      award: "Cannes Lions Gold, Mobile Technology / mCommerce, 2022",
     },
     {
       "@type": "CreativeWork",
@@ -209,7 +209,7 @@ const website = {
   url: BASE_URL,
   name: "Gabriel René Rodríguez-Rovira",
   description:
-    "Portfolio of Gabriel René Rodríguez-Rovira — Digital Strategy & Technology Director and AI educator based in Puerto Rico.",
+    "Portfolio of Gabriel René Rodríguez-Rovira | Digital Strategy & Technology Director and AI educator based in Puerto Rico.",
   author: { "@id": `${BASE_URL}/#person` },
   inLanguage: "en-US",
 }

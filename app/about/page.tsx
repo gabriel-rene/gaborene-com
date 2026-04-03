@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Art director turned Digital Strategy & Technology Director. Based in Puerto Rico. AI speaker and educator at national and international forums — from the El Salvador National Marketing Association to the International Women's Economic Forum.",
+    "Art director turned Digital Strategy & Technology Director. Based in Puerto Rico. AI speaker and educator at national and international forums, from the El Salvador National Marketing Association to the International Women's Economic Forum.",
   keywords: [
     "AI speaker Puerto Rico",
     "AI educator Puerto Rico",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Gabriel Rodríguez Rovira",
   ],
   openGraph: {
-    title: "About — Gabriel René Rodríguez-Rovira",
+    title: "About | Gabriel René Rodríguez-Rovira",
     description:
       "Art director turned Digital Strategy & Technology Director. Based in Puerto Rico. AI speaker and educator at forums from the El Salvador National Marketing Association to the International Women's Economic Forum.",
     url: "https://gaborene.com/about",
@@ -29,7 +29,7 @@ const profilePageSchema = {
   "@type": "ProfilePage",
   "@id": "https://gaborene.com/about",
   url: "https://gaborene.com/about",
-  name: "About — Gabriel René Rodríguez-Rovira",
+  name: "About | Gabriel René Rodríguez-Rovira",
   about: { "@id": "https://gaborene.com/#person" },
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -68,7 +68,7 @@ export default function About() {
           <p>
             I started as an art director in Puerto Rico, working across local and
             international advertising clients. When the social media era hit, I
-            moved toward digital creative and strategy — and never fully left
+            moved toward digital creative and strategy, and never fully left
             either side.
           </p>
           <p>
@@ -85,8 +85,8 @@ export default function About() {
             strategy and technology.
           </p>
           <p>
-            I've been speaking and educating on AI — specifically on
-            human-centered design and implementation — at forums ranging from the
+            I've been speaking and educating on AI, specifically on
+            human-centered design and implementation, at forums ranging from the
             El Salvador National Marketing Association to the International
             Women's Economic Forum. The technology is changing us. Understanding
             it is not optional.
@@ -119,7 +119,7 @@ export default function About() {
               },
               {
                 source: "Ogilvy",
-                title: "The Eye Tracker — Featured Work",
+                title: "The Eye Tracker, Featured Work",
                 url: "https://www.ogilvy.com/work/eye-tracker",
                 year: "2022",
               },
@@ -132,7 +132,7 @@ export default function About() {
               {
                 source: "WAPA TV",
                 title:
-                  "Asociación de Relacionistas de Puerto Rico — Convención Anual 2025",
+                  "Asociación de Relacionistas de Puerto Rico, Convención Anual 2025",
                 url: "https://wapa.tv/noticias/negocios/asociaci-n-de-relacionistas-de-puerto-rico-anuncia-su-convenci-n-anual-2025/article_2bfc035b-662a-4c00-9f27-23905de97527.html",
                 year: "2025",
               },
@@ -145,7 +145,7 @@ export default function About() {
                   className="group flex flex-col gap-0.5"
                 >
                   <span className="text-xs text-stone-400 dark:text-stone-600">
-                    {source} — {year}
+                    {source}, {year}
                   </span>
                   <span className="text-sm text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 transition-colors leading-snug">
                     {title}

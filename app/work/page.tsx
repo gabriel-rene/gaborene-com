@@ -7,11 +7,11 @@ import caseStudies from "@/data/work"
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected case studies in digital strategy, creative technology, and AI-driven campaigns. Award-winning work from Puerto Rico — Cannes Lions, Effie, El Ojo de Iberoamérica, FIAP, and more.",
+    "Selected case studies in digital strategy, creative technology, and AI-driven campaigns. Award-winning work from Puerto Rico, Cannes Lions, Effie, El Ojo de Iberoamérica, FIAP, and more.",
   openGraph: {
-    title: "Work — Gabriel René Rodríguez-Rovira",
+    title: "Work | Gabriel René Rodríguez-Rovira",
     description:
-      "Selected case studies in digital strategy, creative technology, and AI-driven campaigns. Award-winning work from Puerto Rico — Cannes Lions, Effie, El Ojo de Iberoamérica, FIAP, and more.",
+      "Selected case studies in digital strategy, creative technology, and AI-driven campaigns. Award-winning work from Puerto Rico, Cannes Lions, Effie, El Ojo de Iberoamérica, FIAP, and more.",
     url: "https://gaborene.com/work",
   },
   alternates: {
@@ -29,7 +29,7 @@ const workPageSchema = {
   "@type": "CollectionPage",
   "@id": "https://gaborene.com/work",
   url: "https://gaborene.com/work",
-  name: "Work — Gabriel René Rodríguez-Rovira",
+  name: "Work | Gabriel René Rodríguez-Rovira",
   description:
     "Selected case studies in digital strategy, creative technology, and AI-driven campaigns from Puerto Rico.",
   author: { "@id": "https://gaborene.com/#person" },
@@ -99,7 +99,7 @@ export default function Work() {
                   {study.title}
                 </h2>
                 <p className="text-sm text-stone-400 dark:text-stone-600">
-                  {study.client} — {study.year}
+                  {study.client}, {study.year}
                 </p>
                 <p className="text-sm text-stone-500 dark:text-stone-500 leading-relaxed mt-1 line-clamp-2">
                   {study.summary}
@@ -150,7 +150,7 @@ export default function Work() {
                   {study.title}
                 </h2>
                 <p className="text-sm text-stone-400 dark:text-stone-600">
-                  {study.client} — {study.year}
+                  {study.client}, {study.year}
                 </p>
               </div>
             </Link>

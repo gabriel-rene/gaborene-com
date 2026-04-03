@@ -33,7 +33,7 @@ const identities: Identity[] = [
       "Podcast: ADQLEB with Alberto Deida",
       "Puerto Rico Association of Public Relations",
       "Puerto Rico Association of Advertising Agencies",
-      "University of Puerto Rico — Faculty of Communication Studies: Panelist and Consultant on Curriculum Development",
+      "University of Puerto Rico, Faculty of Communication Studies: Panelist and Consultant on Curriculum Development",
       "El Salvador National Marketing Association",
       "Podcast: Déjame Ayudarte, Dr. Franceschini",
       "University of Puerto Rico Association of Advertising and Public Relations Association",
