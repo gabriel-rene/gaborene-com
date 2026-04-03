@@ -8,11 +8,11 @@
 
 :root {
   --background: #fafaf9;
-  --foreground: #1c1917;
+  --foreground: #4B3B47;
 }
 
 .dark {
-  --background: #0c0a09;
+  --background: #4B3B47;
   --foreground: #f5f5f4;
 }
 
