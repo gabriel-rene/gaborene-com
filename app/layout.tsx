@@ -89,7 +89,7 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-stone-50 dark:bg-[#4B3B47] text-[#4B3B47] dark:text-stone-100 transition-colors">
+      <body className="min-h-full flex flex-col bg-stone-100 dark:bg-stone-900 text-stone-900 dark:text-stone-100 transition-colors">
         <ThemeProvider>
           <SiteStructuredData />
           <Nav />

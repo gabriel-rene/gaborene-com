@@ -4,16 +4,29 @@
 
 @theme inline {
   --font-serif: var(--font-instrument-serif);
+
+  /* Brand stone scale — light: #E0D8DE family, dark: #2A1F27 family */
+  --color-stone-50:  #EDE8EC;
+  --color-stone-100: #E0D8DE;
+  --color-stone-200: #C8BEC6;
+  --color-stone-300: #B0A3AD;
+  --color-stone-400: #988694;
+  --color-stone-500: #7E6C7A;
+  --color-stone-600: #5E4C5A;
+  --color-stone-700: #4A3A46;
+  --color-stone-800: #362831;
+  --color-stone-900: #2A1F27;
+  --color-stone-950: #1E1520;
 }
 
 :root {
-  --background: #fafaf9;
-  --foreground: #4B3B47;
+  --background: #E0D8DE;
+  --foreground: #2A1F27;
 }
 
 .dark {
-  --background: #4B3B47;
-  --foreground: #f5f5f4;
+  --background: #2A1F27;
+  --foreground: #E0D8DE;
 }
 
 body {
