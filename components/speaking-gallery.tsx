@@ -27,26 +27,29 @@ export function SpeakingGallery() {
 
   return (
     <>
-      <div className="mt-5 inline-flex gap-1.5 p-1.5 rounded-2xl ring-1 ring-stone-200 dark:ring-stone-800">
-        {photos.map((photo) => (
-          <motion.button
-            key={photo.src}
-            onClick={() => setSelected(photo)}
-            whileHover={{ scale: 1.06, zIndex: 1 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ duration: 0.15, ease: "easeOut" }}
-            className="relative w-14 h-14 rounded-xl overflow-hidden ring-1 ring-stone-200 dark:ring-stone-700 flex-shrink-0 cursor-pointer"
-            style={{ position: "relative" }}
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              className="object-cover"
-              sizes="56px"
-            />
-          </motion.button>
-        ))}
+      <div className="relative mt-5 w-full">
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-0.5 bg-stone-200 dark:bg-stone-800" />
+        <div className="relative grid grid-cols-5 gap-2">
+          {photos.map((photo) => (
+            <motion.button
+              key={photo.src}
+              onClick={() => setSelected(photo)}
+              whileHover={{ scale: 1.04, zIndex: 1 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              className="relative aspect-square w-full rounded-xl overflow-hidden cursor-pointer"
+              style={{ position: "relative" }}
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 576px) 20vw, 115px"
+              />
+            </motion.button>
+          ))}
+        </div>
       </div>
 
       <AnimatePresence>
