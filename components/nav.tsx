@@ -13,13 +13,25 @@ export function Nav() {
       <nav className="flex items-center gap-8">
         <Link
           href="/work"
-          className="text-sm text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+          className="text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
         >
           Work
         </Link>
         <Link
+          href="/speaking"
+          className="text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+        >
+          Speaking
+        </Link>
+        <Link
+          href="/lab"
+          className="text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+        >
+          Lab
+        </Link>
+        <Link
           href="/about"
-          className="text-sm text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+          className="text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
         >
           About
         </Link>

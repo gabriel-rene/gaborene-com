@@ -71,7 +71,7 @@ export default function Work() {
             href={PLAYLIST_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm text-stone-400 dark:text-stone-600 hover:text-stone-700 dark:hover:text-stone-300 transition-colors"
+            className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300 transition-colors"
           >
             Watch all on YouTube
             <ExternalLink size={13} />
@@ -98,10 +98,10 @@ export default function Work() {
                 <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100 group-hover:text-stone-500 dark:group-hover:text-stone-400 transition-colors">
                   {study.title}
                 </h2>
-                <p className="text-sm text-stone-400 dark:text-stone-600">
+                <p className="text-sm text-stone-600 dark:text-stone-400">
                   {study.client}, {study.year}
                 </p>
-                <p className="text-sm text-stone-500 dark:text-stone-500 leading-relaxed mt-1 line-clamp-2">
+                <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mt-1 line-clamp-2">
                   {study.summary}
                 </p>
               </div>
@@ -122,7 +122,7 @@ export default function Work() {
           ].map((award) => (
             <span
               key={award}
-              className="text-xs text-stone-400 dark:text-stone-600 uppercase tracking-widest"
+              className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest"
             >
               {award}
             </span>
@@ -149,7 +149,7 @@ export default function Work() {
                 <h2 className="font-serif text-lg text-stone-900 dark:text-stone-100 group-hover:text-stone-500 dark:group-hover:text-stone-400 transition-colors">
                   {study.title}
                 </h2>
-                <p className="text-sm text-stone-400 dark:text-stone-600">
+                <p className="text-sm text-stone-600 dark:text-stone-400">
                   {study.client}, {study.year}
                 </p>
               </div>

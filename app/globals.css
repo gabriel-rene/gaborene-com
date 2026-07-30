@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-serif: var(--font-editorial-old);
+  --font-serif: var(--font-datatype);
 
   /* Brand stone scale — light: #E0D7D7 family, dark: #312424 family */
   --color-stone-50:  #EAE3E3;

@@ -41,6 +41,8 @@ const identities: Identity[] = [
       "International Women's Economic Forum",
       "Puerto Rico Next Tourism Summit",
       "Recurrent speaker at Chamber of Commerce SMB's forums",
+      "Podcast: The Advertising Scoop",
+      "Design Dinners: Inteligencia Artificial en Industrias Creativas",
     ],
   },
   {

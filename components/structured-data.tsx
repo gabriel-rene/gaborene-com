@@ -8,9 +8,9 @@ const person = {
   alternateName: ["Gabriel Rene Rodriguez-Rovira", "gaborene"],
   url: BASE_URL,
   email: "gabriel@gaborene.com",
-  jobTitle: "Digital Strategy & Technology Director",
+  jobTitle: "Digital Strategy & Technology Executive",
   description:
-    "Digital Strategy & Technology Director based in Puerto Rico. Speaker and educator on artificial intelligence, human-centered AI design, and emerging technology. Award-winning advertising professional recognized at Cannes Lions, Effie Awards, El Ojo de Iberoamérica, and more.",
+    "Digital Strategy & Technology Executive based in Puerto Rico. Speaker and educator on artificial intelligence, human-centered AI design, and emerging technology. Award-winning advertising professional recognized at Cannes Lions, Effie Awards, El Ojo de Iberoamérica, and more.",
   address: {
     "@type": "PostalAddress",
     addressRegion: "Puerto Rico",
@@ -39,7 +39,7 @@ const person = {
   ],
   hasOccupation: {
     "@type": "Occupation",
-    name: "Digital Strategy & Technology Director",
+    name: "Digital Strategy & Technology Executive",
     occupationLocation: {
       "@type": "AdministrativeArea",
       name: "Puerto Rico",
@@ -129,11 +129,22 @@ const person = {
       name: "AI Guest, Podcast Neptuno Networks The Orbit",
       organizer: { "@type": "Organization", name: "Neptuno Networks" },
     },
+    {
+      "@type": "Event",
+      name: "AI Guest, Podcast The Advertising Scoop",
+      organizer: { "@type": "Organization", name: "The Advertising Scoop" },
+    },
+    {
+      "@type": "Event",
+      name: "Speaker, Design Dinners: Inteligencia Artificial en Industrias Creativas",
+      organizer: { "@type": "Organization", name: "Design Dinners" },
+    },
   ],
   sameAs: [
     BASE_URL,
     "https://pr.linkedin.com/in/gabrielrene",
     "https://x.com/gabrielrodz",
+    "https://github.com/gabriel-rene",
   ],
   subjectOf: [
     {
@@ -209,7 +220,7 @@ const website = {
   url: BASE_URL,
   name: "Gabriel René Rodríguez-Rovira",
   description:
-    "Portfolio of Gabriel René Rodríguez-Rovira | Digital Strategy & Technology Director and AI educator based in Puerto Rico.",
+    "Portfolio of Gabriel René Rodríguez-Rovira | Digital Strategy & Technology Executive and AI educator based in Puerto Rico.",
   author: { "@id": `${BASE_URL}/#person` },
   inLanguage: "en-US",
 }

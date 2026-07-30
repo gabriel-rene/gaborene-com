@@ -9,12 +9,14 @@ and professional peers.
 
 ## Stack
 
-- **Framework:** Next.js 15 (App Router)
+- **Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript — strict mode, no `any`
 - **Styling:** Tailwind CSS v4 — utility-first, no CSS modules, no `tailwind.config.js`
 - **Animations:** Framer Motion — for all transitions and reveals
 - **Theme:** `next-themes` for dark/light toggle
-- **Font:** Instrument Serif (Google Fonts, via `next/font`)
+- **Fonts:** Datatype (Google Fonts, headings — self-hosted variable `.woff2`) 
+  and PP Neue York (body, licensed `.otf`) — files in `app/fonts/`, loaded 
+  via `next/font/local`. Datatype has no italic; italics are synthesized.
 - **Icons:** lucide-react
 - **Package manager:** npm
 - **Deploy:** Vercel
@@ -27,22 +29,30 @@ Do not introduce new dependencies without explicit instruction.
 
 ```
 app/
-  layout.tsx        # Root layout, metadata, font, ThemeProvider
-  page.tsx          # Landing page
-  globals.css       # Tailwind directives + base styles only
+  layout.tsx           # Root layout, metadata, fonts, ThemeProvider, viewport
+  page.tsx             # Landing page: role selector + featured work
+  not-found.tsx        # Custom 404
+  opengraph-image.tsx  # Generated OG/social share image (next/og)
+  globals.css          # Tailwind directives, brand palette, base styles only
+  robots.ts
+  sitemap.ts
+  fonts/               # Font files (Datatype + licensed PP) — never move into public/
   work/
-    page.tsx        # Case studies index
+    page.tsx           # Case studies index
     [slug]/
-      page.tsx      # Individual case study
+      page.tsx         # Individual case study
   about/
-    page.tsx        # Bio page
+    page.tsx           # Bio + press + contact
+  speaking/
+    page.tsx           # AI speaking & education: engagements, gallery, inquiries
 components/
-  # Shared UI components
-  # No barrel files (index.ts) unless explicitly requested
+  # Shared UI components — no barrel files (index.ts) unless requested
 data/
-  identities.ts     # Role selector content
-  work.ts           # Case studies content (to be created)
+  identities.ts        # Role selector content
+  work.ts              # Case studies content
+  timeline.ts          # Career timeline content (not yet rendered by any page)
 public/
+  speaking/            # Speaking engagement photos
   # Real assets only — no placeholders
 ```
 
@@ -52,7 +62,8 @@ public/
 
 - All components are React Server Components by default
 - Add `"use client"` only when hooks or browser APIs are required
-- No inline styles — Tailwind classes only
+- No inline styles — Tailwind classes only (exception: `opengraph-image.tsx`,
+  where the `next/og` renderer requires inline styles)
 - No `<style>` tags in components
 - Use `next/image` for all images
 - Use `next/link` for all internal navigation
@@ -65,10 +76,14 @@ public/
 
 ## Design system
 
-**Color palette:** Tailwind stone scale  
+**Color palette:** Custom brand scale overriding Tailwind stone in `globals.css` — 
+light background `#E0D7D7`, dark background `#312424`  
 **Dark mode:** Class-based via `next-themes`, always support both modes  
-**Typography:** Instrument Serif throughout — no fallback sans-serif mixing  
-**Motion:** Subtle, purposeful — reveal animations on enter, no looping animations  
+**Typography:** Datatype for headings (`font-serif`), PP Neue York for body  
+**Contrast:** Body and label text must meet WCAG AA (4.5:1) — on the light 
+background that means `stone-600` or darker; in dark mode `stone-400` or lighter  
+**Motion:** Subtle, purposeful — reveal animations on enter, no looping 
+animations; respect `prefers-reduced-motion` (MotionConfig is set globally)  
 **Quality bar:** Client-demo ready at all times — no lorem ipsum, no 
 placeholder content, no visible layout breaks at any viewport
 
@@ -77,13 +92,13 @@ placeholder content, no visible layout breaks at any viewport
 ## Content & positioning
 
 The site owner's professional title is **Digital Strategy & Technology 
-Director**. Do not use "Creative Technologist" anywhere.
+Executive**. Do not use "Creative Technologist" anywhere.
 
 The tone across all copy is: first-person, direct, specific, a little dry. 
 No marketing fluff. No superlatives.
 
 The site is in **English**. All code, comments, and variable names are 
-in English.
+in English. Use typographic quotes/apostrophes (’ “ ”) in copy.
 
 ---
 
@@ -96,4 +111,6 @@ in English.
 - Do not use `any` in TypeScript
 - Do not add comments that just restate what the code does
 - Do not create files outside the structure above unless asked
-- Do not remove or change the Instrument Serif font
+- Do not remove or change the Datatype / PP Neue York fonts
+- Do not put font files in `public/` — they are licensed and must not be 
+  directly downloadable

@@ -7,10 +7,10 @@ import { X } from "lucide-react"
 
 const photos = [
   { src: "/speaking/gabo-camara-de-comercio.jpg", alt: "Speaking at Chamber of Commerce" },
-  { src: "/speaking/gabo-cud.jpg", alt: "Speaking engagement" },
+  { src: "/speaking/gabo-cud.jpg", alt: "Speaking on AI at an industry conference" },
   { src: "/speaking/gabo-el-salvador.jpg", alt: "El Salvador National Marketing Association" },
   { src: "/speaking/gabo-prnext-summit.jpg", alt: "PR Next Tourism Summit" },
-  { src: "/speaking/gabo-turismo.jpg", alt: "Tourism forum" },
+  { src: "/speaking/gabo-turismo.jpg", alt: "Speaking at a tourism industry forum" },
 ]
 
 export function SpeakingGallery() {
@@ -38,7 +38,7 @@ export function SpeakingGallery() {
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.15, ease: "easeOut" }}
               className="relative aspect-square w-full rounded-xl overflow-hidden cursor-pointer"
-              style={{ position: "relative" }}
+              aria-label={`View photo: ${photo.alt}`}
             >
               <Image
                 src={photo.src}
@@ -60,6 +60,9 @@ export function SpeakingGallery() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
             onClick={() => setSelected(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={selected.alt}
             className="fixed inset-0 z-50 flex items-center justify-center bg-stone-950/50 backdrop-blur-sm p-8"
           >
             <motion.div
@@ -79,6 +82,7 @@ export function SpeakingGallery() {
               />
               <button
                 onClick={() => setSelected(null)}
+                aria-label="Close photo"
                 className="absolute top-2.5 right-2.5 p-1 rounded-full bg-stone-950/40 text-white hover:bg-stone-950/60 transition-colors"
               >
                 <X size={13} />

@@ -7,7 +7,17 @@ export interface CaseStudy {
   youtubeId: string
   summary: string
   body: string
+  role?: string
+  pullQuote?: { quote: string; attribution: string }
   awards?: string[]
+}
+
+// Videos without a maxresdefault thumbnail on YouTube's CDN
+const NO_MAXRES = new Set(["GijvcjPvB7M"])
+
+export function ogThumbnail(youtubeId: string): string {
+  const quality = NO_MAXRES.has(youtubeId) ? "hqdefault" : "maxresdefault"
+  return `https://img.youtube.com/vi/${youtubeId}/${quality}.jpg`
 }
 
 const caseStudies: CaseStudy[] = [
@@ -23,6 +33,12 @@ const caseStudies: CaseStudy[] = [
     body: `In collaboration with partners like Plaza Las Américas and Plaza Del Caribe, the initiative features cars that have received "transplants" of spare parts from other vehicles. This visual storytelling simplifies the concept of organ donation and inspires registrations through the website donaorganos.com.
 
 The campaign was created for the Fundación Stefano Steenbakkers Betancourt by de la Cruz (Ogilvy), and has been recognized for its creativity and positive social impact across several major festivals.`,
+    role: "Digital strategy, technology direction, and production, de la Cruz (Ogilvy)",
+    pullQuote: {
+      quote: "Thanks to you guys, I got a kidney.",
+      attribution:
+        "Caller to the foundation, one week after launch. The only metric that ever mattered.",
+    },
     awards: [
       "LUUM Awards 2024, Campaign of the Year",
       "LUUM Awards 2024, Grand Prix: Causes / Partnerships to Achieve Goals",
@@ -50,6 +66,8 @@ The campaign was created for the Fundación Stefano Steenbakkers Betancourt by d
 The campaign used billboards and TV spots to drive traffic to these closed locations, resulting in an immersive experience where the stores were reopened for the promotion.
 
 The campaign successfully turned previously closed restaurants into the busiest locations in town within just two nights.`,
+    role:
+      "Digital strategy, technology direction, and production, de la Cruz (Ogilvy)",
   },
   {
     slug: "pasaporte-aventura",
@@ -65,6 +83,8 @@ The campaign successfully turned previously closed restaurants into the busiest 
 In 2023, the Puerto Rico Tourism Company unveiled Passport to Adventure, a gamified digital platform allowing users to explore over 700 destinations, collect digital badges, and compete for monthly prizes. Groundbreaking use of geolocation technology coupled with RFID-enabled signage facilitated physical check-ins at locations across the island.
 
 Using Design Thinking methodology, the platform was built around user-centric and accessible design on mobile devices. The initiative was an unprecedented success, boosting the local economy across all 78 municipalities and generating crucial data on local tourist behavior to inform future improvements.`,
+    role:
+      "Digital strategy, technology direction, and production, de la Cruz (Ogilvy)",
     awards: [
       "SME Digital Awards 2024, Gold: Digital User Experience and Interface Design",
       "SME Digital Awards 2024, Gold: Tech Solution Development",
@@ -84,6 +104,8 @@ Using Design Thinking methodology, the platform was built around user-centric an
 SuperMax, the biggest online grocery store in Puerto Rico, created REUSABLES to shift that behavior. Using augmented reality on Instagram and the reusables.ai website, customers could point their smartphone camera at the labels of participating products. The filter instantly transformed the label to display alternative uses for the product after expiration, preventing it from going to landfill. The "Use By" label became a "Use For" prompt.
 
 When alternative uses were shown, users could visit the site to view tutorials on how to apply each life hack. The campaign reframed a waste problem as an opportunity, using technology to create behavioral change at the point of purchase.`,
+    role:
+      "Digital strategy, technology direction, and production, de la Cruz (Ogilvy)",
     awards: [
       "FIAP Awards 2023, Bronze: Best Sustainability Campaign",
       "FIAP Awards 2023, Bronze: Mobile Innovation",
@@ -105,6 +127,8 @@ When alternative uses were shown, users could visit the site to view tutorials o
 Based on the fact that Call of Duty was promoted primarily as a night battle game, Burger King created an immersive offline experience available only in Puerto Rico. Selected restaurant locations were remodeled to look like scenes from the game. An AR filter let customers use their phones to navigate the space through night-vision goggles, finding hidden clues to win rewards, discounts, limited-edition combos, rewards on the BK® App, and exclusive in-game skins.
 
 For one month, the campaign connected the virtual game with real-world restaurant experiences, generating thousands of visits and millions of interactions.`,
+    role:
+      "Digital strategy, technology direction, and production, de la Cruz (Ogilvy)",
     awards: [
       "SME Digital Awards 2023, Silver: Gamification",
       "FIAP Awards 2023, Bronze: Innovation",
@@ -127,6 +151,8 @@ The Eye Tracker integrates storm trajectory data from the National Hurricane Cen
 The platform introduced the first-ever street view experience of a hurricane's projected path, allowing users to visually comprehend the impact area before deciding what to buy. Users could then purchase suggested items directly through the platform for delivery or in-store pickup.
 
 The result was a calmer, more rational approach to storm preparation, and essential supplies that stayed available for the entire community.`,
+    role:
+      "Digital strategy, technology direction, and production, de la Cruz (Ogilvy)",
     awards: [
       "Cannes Lions 2022, Gold: Mobile (Mobile Technology / mCommerce)",
       "Cannes Lions 2022, Bronze: Creative Commerce",
