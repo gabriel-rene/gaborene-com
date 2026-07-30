@@ -19,9 +19,9 @@ below is already fixed in the local working tree but NOT live:
 - Security headers in `next.config.ts` not live (only Vercel's HSTS is served)
 - Only 1 JSON-LD block live vs. full Person/WebSite/per-page schema locally
 
-- [ ] Review + commit the working tree (owner runs git per CLAUDE.md)
-- [ ] Deploy to Vercel and re-verify: title, /speaking 200, og-image 200,
-      headers present, JSON-LD count
+- [x] Review + commit the working tree (784639e, 2026-07-29)
+- [x] Deploy to Vercel and re-verify: title, /speaking 200, og-image 200,
+      headers present, JSON-LD count — all verified live 2026-07-29
 
 ## P0 — Domain / canonical mismatch (SEO-critical)
 
