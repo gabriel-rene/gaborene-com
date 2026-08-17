@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import caseStudies from "@/data/work"
+import { getOsNotes } from "@/lib/os-notes"
 
 const BASE_URL = "https://gaborene.com"
 
@@ -12,6 +13,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: CONTENT_UPDATED,
     changeFrequency: "monthly",
     priority: 0.7,
+  }))
+
+  const osNoteUrls: MetadataRoute.Sitemap = getOsNotes().map((note) => ({
+    url: `${BASE_URL}/lab/notes/${note.slug}`,
+    lastModified: CONTENT_UPDATED,
+    changeFrequency: "monthly",
+    priority: 0.6,
   }))
 
   return [
@@ -45,6 +53,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${BASE_URL}/lab/notes`,
+      lastModified: CONTENT_UPDATED,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
     ...caseStudyUrls,
+    ...osNoteUrls,
   ]
 }

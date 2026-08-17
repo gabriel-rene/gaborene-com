@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { ExternalLink } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight, ExternalLink } from "lucide-react"
 import labProjects from "@/data/lab"
 
 export const metadata: Metadata = {
@@ -108,6 +109,22 @@ export default function Lab() {
             </li>
           ))}
         </ul>
+
+        <Link
+          href="/lab/notes"
+          className="group flex flex-col gap-2 max-w-xl pt-8 border-t border-stone-200 dark:border-stone-800"
+        >
+          <h2 className="font-serif text-2xl text-stone-900 dark:text-stone-100 group-hover:text-stone-500 dark:group-hover:text-stone-400 transition-colors flex items-center gap-2">
+            Notes from the OS
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </h2>
+          <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
+            Research digests written by the machine, curated by me.
+          </p>
+        </Link>
       </div>
     </main>
   )
