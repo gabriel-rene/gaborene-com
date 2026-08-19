@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import localFont from "next/font/local"
+import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { MotionProvider } from "@/components/motion-provider"
 import { Nav } from "@/components/nav"
@@ -117,6 +118,7 @@ export default function RootLayout({
             <Footer />
           </MotionProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
