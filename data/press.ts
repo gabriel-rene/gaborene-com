@@ -55,6 +55,15 @@ const press: PressItem[] = [
     url: "https://wapa.tv/noticias/negocios/asociaci-n-de-relacionistas-de-puerto-rico-anuncia-su-convenci-n-anual-2025/article_2bfc035b-662a-4c00-9f27-23905de97527.html",
     year: "2025",
   },
+  {
+    source: "El Vocero",
+    title:
+      "Consumidores confían más en anuncios creados por personas que en IA",
+    url: "https://www.elvocero.com/economia/consumidores-conf-an-m-s-en-anuncios-creados-por-personas-que-en-ia/article_336355bf-adfd-4bf0-94b0-fd853385cecd.html",
+    year: "2026",
+    contribution:
+      "Quoted on AI disclosure, perceived authenticity, and the human work required to keep audience trust.",
+  },
 ]
 
 export default press
