@@ -57,6 +57,9 @@ const press: PressItem[] = [
     title: "Asociación de Relacionistas de Puerto Rico, Convención Anual 2025",
     url: "https://wapa.tv/noticias/negocios/asociaci-n-de-relacionistas-de-puerto-rico-anuncia-su-convenci-n-anual-2025/article_2bfc035b-662a-4c00-9f27-23905de97527.html",
     year: "2025",
+    contribution:
+      "Pre-convention workshop speaker — “La IA y la publicidad: tendencias.”",
+    ai: true,
   },
   {
     source: "El Vocero",
