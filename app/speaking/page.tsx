@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SpeakingGallery } from "@/components/speaking-gallery"
 import identities from "@/data/identities"
+import press from "@/data/press"
 
 export const metadata: Metadata = {
   title: "Speaking",
@@ -56,6 +57,7 @@ const speakingPageSchema = {
 export default function Speaking() {
   const engagements =
     identities.find((i) => i.role === "educator on AI")?.engagements ?? []
+  const aiPress = press.filter((item) => item.ai)
 
   return (
     <main className="flex flex-col flex-1 px-8 pt-32 pb-16 max-w-3xl mx-auto w-full">
@@ -97,6 +99,36 @@ export default function Speaking() {
                 className="text-sm text-stone-600 dark:text-stone-400 before:content-['—'] before:mr-2 leading-snug"
               >
                 {engagement}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <p className="text-sm text-stone-600 dark:text-stone-400 uppercase tracking-widest">
+            Press
+          </p>
+          <ul className="flex flex-col gap-2 max-w-xl">
+            {aiPress.map(({ source, title, url, year, contribution }) => (
+              <li key={url}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col gap-0.5"
+                >
+                  <span className="text-xs text-stone-600 dark:text-stone-400">
+                    {source}, {year}
+                  </span>
+                  <span className="text-sm text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 transition-colors leading-snug">
+                    {title}
+                  </span>
+                  {contribution && (
+                    <span className="text-xs text-stone-600 dark:text-stone-400 leading-snug mt-0.5">
+                      {contribution}
+                    </span>
+                  )}
+                </a>
               </li>
             ))}
           </ul>

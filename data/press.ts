@@ -4,6 +4,8 @@ export interface PressItem {
   url: string
   year: string
   contribution?: string
+  /** Surfaced in the Press list on the Speaking page. */
+  ai?: boolean
 }
 
 const press: PressItem[] = [
@@ -48,6 +50,7 @@ const press: PressItem[] = [
     title: "DLC Group enhances AI integration across all departments",
     url: "https://newsismybusiness.com/dlc-group-enhances-ai-integration-across-all-departments/",
     year: "2025",
+    ai: true,
   },
   {
     source: "WAPA TV",
@@ -63,6 +66,7 @@ const press: PressItem[] = [
     year: "2026",
     contribution:
       "Quoted on AI disclosure, perceived authenticity, and the human work required to keep audience trust.",
+    ai: true,
   },
 ]
 
