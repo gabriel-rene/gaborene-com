@@ -8,6 +8,11 @@ import { path, type Locale } from "@/lib/i18n"
 import { SpeakingGallery } from "@/components/speaking-gallery"
 import { EngagementList } from "@/components/engagement-list"
 
+const MORE_ON_SPEAKING: Record<Locale, string> = {
+  en: "More on speaking",
+  es: "Más sobre mis charlas",
+}
+
 export function RoleSelector({
   locale,
   identities,
@@ -56,19 +61,17 @@ export function RoleSelector({
                 {active.description}
               </p>
               {active.engagements && (
-                <EngagementList
-                  engagements={active.engagements}
-                  className="mt-4 space-y-1"
-                />
-              )}
-              {active.engagements && (
                 <>
+                  <EngagementList
+                    engagements={active.engagements}
+                    className="mt-4 space-y-1"
+                  />
                   <SpeakingGallery locale={locale} />
                   <Link
                     href={path(locale, "speaking")}
                     className="inline-block mt-4 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                   >
-                    {locale === "es" ? "Más sobre mis charlas" : "More on speaking"}
+                    {MORE_ON_SPEAKING[locale]}
                   </Link>
                 </>
               )}

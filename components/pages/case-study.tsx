@@ -13,6 +13,7 @@ import {
   type Locale,
 } from "@/lib/i18n"
 import { metaDescription, pageMetadata } from "@/lib/site-metadata"
+import { JsonLd } from "@/components/structured-data"
 
 const COPY: Record<
   Locale,
@@ -102,10 +103,7 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
         study.film ? "max-w-5xl" : "max-w-3xl"
       }`}
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }}
-      />
+      <JsonLd data={caseStudySchema} />
       <div className="flex flex-col gap-10">
         <Link
           href={path(locale, "work")}

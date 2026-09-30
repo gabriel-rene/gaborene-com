@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { SiteDocument } from "@/components/site-document"
+import { BASE_URL } from "@/lib/i18n"
 import "./globals.css"
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: "404 | Gabriel René Rodríguez-Rovira",
   robots: { index: false, follow: true },
 }
@@ -25,14 +27,14 @@ export default function GlobalNotFound() {
           <div className="flex items-center justify-center gap-6 mt-2">
             <Link
               href="/"
-              className="font-serif italic text-stone-900 dark:text-stone-100 hover:text-stone-500 dark:hover:text-stone-400 transition-colors"
+              className="font-serif italic text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors"
             >
               Home
             </Link>
             <Link
               href="/es"
               lang="es"
-              className="font-serif italic text-stone-900 dark:text-stone-100 hover:text-stone-500 dark:hover:text-stone-400 transition-colors"
+              className="font-serif italic text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors"
             >
               Inicio
             </Link>

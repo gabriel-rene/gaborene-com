@@ -1,5 +1,3 @@
-"use client"
-
 import type { ReactNode } from "react"
 import { FILM_FACTS } from "@/data/voyturisteando-film"
 

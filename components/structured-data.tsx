@@ -292,17 +292,23 @@ const website = {
   inLanguage: "en-US",
 }
 
+/** Escapes `<` so a string in the data can never close the script tag. */
+export function JsonLd({ data }: { data: object }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, "\\u003c"),
+      }}
+    />
+  )
+}
+
 export function SiteStructuredData() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
-      />
+      <JsonLd data={person} />
+      <JsonLd data={website} />
     </>
   )
 }

@@ -175,21 +175,3 @@ export function IslandMap({
     </svg>
   )
 }
-
-/** Stat block: big figure + label. Figure can be a MotionValue string. */
-export function Stat({
-  figure,
-  label,
-  className = "",
-}: {
-  figure: ReactNode
-  label: string
-  className?: string
-}) {
-  return (
-    <div className={`flex flex-col gap-[0.4cqw] ${className}`}>
-      <motion.span className="font-serif text-[4.2cqw] leading-none tabular-nums">{figure}</motion.span>
-      <span className="font-sans text-[0.95cqw] leading-snug opacity-80">{label}</span>
-    </div>
-  )
-}

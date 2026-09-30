@@ -4,6 +4,7 @@ import { EngagementList } from "@/components/engagement-list"
 import { getEngagements, getPress } from "@/lib/content"
 import { routeAlternates, url, type Locale } from "@/lib/i18n"
 import { pageMetadata, SITE_NAME } from "@/lib/site-metadata"
+import { JsonLd } from "@/components/structured-data"
 
 const COPY = {
   en: {
@@ -88,10 +89,7 @@ export function SpeakingPage({ locale }: { locale: Locale }) {
 
   return (
     <main className="flex flex-col flex-1 px-8 pt-32 pb-16 max-w-3xl mx-auto w-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakingPageSchema) }}
-      />
+      <JsonLd data={speakingPageSchema} />
       <div className="flex flex-col gap-12">
         <div className="flex flex-col gap-2">
           <h1 className="font-serif text-4xl md:text-5xl text-stone-900 dark:text-stone-100">
@@ -127,7 +125,7 @@ export function SpeakingPage({ locale }: { locale: Locale }) {
           </p>
           <a
             href="mailto:gabriel@gaborene.com"
-            className="font-serif italic text-stone-900 dark:text-stone-100 hover:text-stone-500 dark:hover:text-stone-400 transition-colors w-fit"
+            className="font-serif italic text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors w-fit"
           >
             gabriel@gaborene.com
           </a>

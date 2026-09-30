@@ -13,13 +13,13 @@ export default function NotFound() {
         <div className="flex items-center justify-center gap-6 mt-2">
           <Link
             href="/"
-            className="font-serif italic text-stone-900 dark:text-stone-100 hover:text-stone-500 dark:hover:text-stone-400 transition-colors"
+            className="font-serif italic text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors"
           >
             Home
           </Link>
           <Link
             href="/work"
-            className="font-serif italic text-stone-900 dark:text-stone-100 hover:text-stone-500 dark:hover:text-stone-400 transition-colors"
+            className="font-serif italic text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors"
           >
             Work
           </Link>

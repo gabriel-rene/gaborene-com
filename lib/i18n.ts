@@ -60,7 +60,7 @@ export function caseStudyAlternates(locale: Locale, slug: string) {
   })
 }
 
-/** The same page in the other language. English-only pages map to their nearest Spanish parent. */
+/** The same page in the other language. Unknown paths fall back to the other home page. */
 export function counterpartPath(pathname: string): string {
   const clean = pathname.replace(/\/+$/, "") || "/"
   const isSpanish = clean === "/es" || clean.startsWith("/es/")
@@ -73,8 +73,6 @@ export function counterpartPath(pathname: string): string {
   const from = isSpanish ? ROUTES.work.es : ROUTES.work.en
   const to = isSpanish ? ROUTES.work.en : ROUTES.work.es
   if (clean.startsWith(`${from}/`)) return `${to}${clean.slice(from.length)}`
-
-  if (clean.startsWith(`${ROUTES.lab.en}/`)) return ROUTES.lab.es
 
   return isSpanish ? ROUTES.home.en : ROUTES.home.es
 }

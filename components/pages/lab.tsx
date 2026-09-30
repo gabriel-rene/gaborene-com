@@ -2,6 +2,7 @@ import { ExternalLink } from "lucide-react"
 import { getLabProjects } from "@/lib/content"
 import { routeAlternates, url, type Locale } from "@/lib/i18n"
 import { pageMetadata, SITE_NAME } from "@/lib/site-metadata"
+import { JsonLd } from "@/components/structured-data"
 
 const COPY = {
   en: {
@@ -77,10 +78,7 @@ export function LabPage({ locale }: { locale: Locale }) {
 
   return (
     <main className="flex flex-col flex-1 px-8 pt-32 pb-16 max-w-3xl mx-auto w-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(labPageSchema) }}
-      />
+      <JsonLd data={labPageSchema} />
       <div className="flex flex-col gap-12">
         <div className="flex flex-col gap-2">
           <h1 className="font-serif text-4xl md:text-5xl text-stone-900 dark:text-stone-100">

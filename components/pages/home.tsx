@@ -70,7 +70,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                   />
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <h2 className="font-serif text-lg text-stone-900 dark:text-stone-100 group-hover:text-stone-500 dark:group-hover:text-stone-400 transition-colors">
+                  <h2 className="font-serif text-lg text-stone-900 dark:text-stone-100 group-hover:text-stone-600 dark:group-hover:text-stone-400 transition-colors">
                     {study.title}
                   </h2>
                   <p className="text-sm text-stone-600 dark:text-stone-400">

@@ -5,6 +5,7 @@ import { cardThumbnail } from "@/data/work"
 import { getCaseStudies } from "@/lib/content"
 import { caseStudyPath, routeAlternates, url, type Locale } from "@/lib/i18n"
 import { pageMetadata, SITE_NAME } from "@/lib/site-metadata"
+import { JsonLd } from "@/components/structured-data"
 
 const PLAYLIST_URL =
   "https://www.youtube.com/playlist?list=PL1UFCpUVmHhBJ2R6wjU1OzZagKzCVSBpA"
@@ -75,10 +76,7 @@ export function WorkPage({ locale }: { locale: Locale }) {
 
   return (
     <main className="flex flex-col flex-1 px-8 pt-32 pb-16 max-w-5xl mx-auto w-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(workPageSchema) }}
-      />
+      <JsonLd data={workPageSchema} />
       <div className="flex flex-col gap-12">
         <div className="flex items-end justify-between gap-4">
           <h1 className="font-serif text-4xl md:text-5xl text-stone-900 dark:text-stone-100">
@@ -112,7 +110,7 @@ export function WorkPage({ locale }: { locale: Locale }) {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100 group-hover:text-stone-500 dark:group-hover:text-stone-400 transition-colors">
+                <h2 className="font-serif text-xl text-stone-900 dark:text-stone-100 group-hover:text-stone-600 dark:group-hover:text-stone-400 transition-colors">
                   {study.title}
                 </h2>
                 <p className="text-sm text-stone-600 dark:text-stone-400">
@@ -154,7 +152,7 @@ export function WorkPage({ locale }: { locale: Locale }) {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <h2 className="font-serif text-lg text-stone-900 dark:text-stone-100 group-hover:text-stone-500 dark:group-hover:text-stone-400 transition-colors">
+                <h2 className="font-serif text-lg text-stone-900 dark:text-stone-100 group-hover:text-stone-600 dark:group-hover:text-stone-400 transition-colors">
                   {study.title}
                 </h2>
                 <p className="text-sm text-stone-600 dark:text-stone-400">

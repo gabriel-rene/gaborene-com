@@ -17,7 +17,7 @@ export function Footer({ locale }: { locale: Locale }) {
           </p>
           <a
             href="mailto:gabriel@gaborene.com"
-            className="font-serif italic text-lg text-stone-900 dark:text-stone-100 hover:text-stone-500 dark:hover:text-stone-400 transition-colors w-fit"
+            className="font-serif italic text-lg text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors w-fit"
           >
             gabriel@gaborene.com
           </a>
