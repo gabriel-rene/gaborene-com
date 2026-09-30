@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import type { Identity } from "@/data/identities"
 import { path, type Locale } from "@/lib/i18n"
 import { SpeakingGallery } from "@/components/speaking-gallery"
+import { EngagementList } from "@/components/engagement-list"
 
 export function RoleSelector({
   locale,
@@ -55,16 +56,10 @@ export function RoleSelector({
                 {active.description}
               </p>
               {active.engagements && (
-                <ul className="mt-4 space-y-1">
-                  {active.engagements.map((e) => (
-                    <li
-                      key={e}
-                      className="text-sm text-stone-600 dark:text-stone-400 before:content-['—'] before:mr-2"
-                    >
-                      {e}
-                    </li>
-                  ))}
-                </ul>
+                <EngagementList
+                  engagements={active.engagements}
+                  className="mt-4 space-y-1"
+                />
               )}
               {active.engagements && (
                 <>

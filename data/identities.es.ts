@@ -20,24 +20,42 @@ const identitiesEs: Identity[] = [
     suffix: ", mucho antes de que el low-code se pusiera de moda.",
   },
   {
-    role: "educador en IA",
+    role: "educador en tecnología/IA",
     description:
       "Siempre he sido bien curioso y me he tirado de cabeza a todas las modas tecnológicas (sí, hasta cripto). Pero nunca como ahora. Creo de verdad que esta tecnología nos está cambiando, y entenderla es crucial para el crecimiento sostenible del potencial humano. He estado educando y abogando por un diseño y una implementación de esta tecnología centrados en las personas, en distintos foros, como educador y conferencista.",
     suffix: ", porque es importante.",
     engagements: [
-      "Podcast: ADQLEB con Alberto Deida",
-      "Asociación de Relacionistas de Puerto Rico",
-      "Asociación de Agencias Publicitarias de Puerto Rico",
-      "Universidad de Puerto Rico, Escuela de Comunicación: panelista y consultor en desarrollo curricular",
-      "Asociación Nacional de Mercadeo de El Salvador",
-      "Podcast: Déjame Ayudarte, Dr. Franceschini",
-      "Asociación de Publicidad y Relaciones Públicas de la Universidad de Puerto Rico",
-      "Podcast: Neptuno Networks The Orbit",
-      "International Women’s Economic Forum",
-      "Puerto Rico Next Tourism Summit",
-      "Conferencista recurrente en los foros para pymes de la Cámara de Comercio",
-      "Podcast: The Advertising Scoop",
-      "Design Dinners: Inteligencia Artificial en Industrias Creativas",
+      {
+        label:
+          "Puerto Rico Advertising Conference (PRAD) 2026: “La IA no te va a quitar el trabajo, pero te lo va a cambiar”",
+      },
+      {
+        label:
+          "SME Leadership Tour 2026, SME Capítulos Universitarios: “¿La IA va a quitarme el trabajo de marketing?”, con Joseph López (NAZA\\TBWA)",
+      },
+      {
+        label: "Podcast: Déjame Ayudarte con el Dr. Franceschini, Ep. 139: Inteligencia Artificial",
+        url: "https://open.spotify.com/episode/51j6z09qehDoLjNnU22tdj",
+      },
+      {
+        label: "Podcast: The Advertising Scoop, Ep. 2: Gabriel Rodríguez & The AI Delusion",
+        url: "https://theadvertisingscoop.substack.com/p/episodio-2-gabriel-rodriguez-and",
+      },
+      { label: "Design Dinners: Inteligencia Artificial en Industrias Creativas" },
+      { label: "Design Dinners 2026: comité organizador" },
+      { label: "Podcast: ADQLEB con Alberto Deida" },
+      { label: "Asociación de Relacionistas de Puerto Rico" },
+      { label: "Asociación de Agencias Publicitarias de Puerto Rico" },
+      {
+        label:
+          "Universidad de Puerto Rico, Escuela de Comunicación: panelista y consultor en desarrollo curricular",
+      },
+      { label: "Asociación Nacional de Mercadeo de El Salvador" },
+      { label: "Asociación de Publicidad y Relaciones Públicas de la Universidad de Puerto Rico" },
+      { label: "Podcast: Neptuno Networks The Orbit" },
+      { label: "International Women’s Economic Forum" },
+      { label: "Puerto Rico Next Tourism Summit" },
+      { label: "Conferencista recurrente en los foros para pymes de la Cámara de Comercio" },
     ],
   },
   {

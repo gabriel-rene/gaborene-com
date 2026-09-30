@@ -1,7 +1,7 @@
 import type { Locale } from "@/lib/i18n"
 import caseStudies, { type CaseStudy } from "@/data/work"
 import caseStudiesEs from "@/data/work.es"
-import identities, { type Identity } from "@/data/identities"
+import identities, { type Engagement, type Identity } from "@/data/identities"
 import identitiesEs from "@/data/identities.es"
 import timeline, { timelineIntro, type TimelineEntry } from "@/data/timeline"
 import timelineEs, { timelineIntroEs } from "@/data/timeline.es"
@@ -28,7 +28,7 @@ export function getIdentities(locale: Locale): Identity[] {
 }
 
 /** The speaking role is the only identity with a list of engagements. */
-export function getEngagements(locale: Locale): string[] {
+export function getEngagements(locale: Locale): Engagement[] {
   return getIdentities(locale).find((i) => i.engagements)?.engagements ?? []
 }
 

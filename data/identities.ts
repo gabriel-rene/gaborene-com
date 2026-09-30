@@ -1,8 +1,14 @@
+export interface Engagement {
+  label: string
+  url?: string
+}
+
 export interface Identity {
   role: string
   description: string
   suffix?: string
-  engagements?: string[]
+  /** Most recent first */
+  engagements?: Engagement[]
 }
 
 const identities: Identity[] = [
@@ -25,24 +31,42 @@ const identities: Identity[] = [
     suffix: ", way before low-code dev'ing was a thing.",
   },
   {
-    role: "educator on AI",
+    role: "educator on Tech/AI",
     description:
       "I've always been very curious and jumped into all the technological fads (yes, even crypto). But never like in this moment. I truly believe this technology is changing us, and understanding is crucial for the sustainable growth of human potential. I've been educating and advocating for human-centered design and implementation of this technology in various forums as an educator and speaker.",
     suffix: ", because it's important.",
     engagements: [
-      "Podcast: ADQLEB with Alberto Deida",
-      "Puerto Rico Association of Public Relations",
-      "Puerto Rico Association of Advertising Agencies",
-      "University of Puerto Rico, Faculty of Communication Studies: Panelist and Consultant on Curriculum Development",
-      "El Salvador National Marketing Association",
-      "Podcast: Déjame Ayudarte, Dr. Franceschini",
-      "University of Puerto Rico Association of Advertising and Public Relations Association",
-      "Podcast: Neptuno Networks The Orbit",
-      "International Women's Economic Forum",
-      "Puerto Rico Next Tourism Summit",
-      "Recurrent speaker at Chamber of Commerce SMB's forums",
-      "Podcast: The Advertising Scoop",
-      "Design Dinners: Inteligencia Artificial en Industrias Creativas",
+      {
+        label:
+          "Puerto Rico Advertising Conference (PRAD) 2026: “AI won’t take your job, but it will change it”",
+      },
+      {
+        label:
+          "SME Leadership Tour 2026, SME University Chapters: “¿La IA va a quitarme el trabajo de marketing?”, with Joseph López (NAZA\\TBWA)",
+      },
+      {
+        label: "Podcast: Déjame Ayudarte with Dr. Franceschini, Ep. 139: Inteligencia Artificial",
+        url: "https://open.spotify.com/episode/51j6z09qehDoLjNnU22tdj",
+      },
+      {
+        label: "Podcast: The Advertising Scoop, Ep. 2: Gabriel Rodríguez & The AI Delusion",
+        url: "https://theadvertisingscoop.substack.com/p/episodio-2-gabriel-rodriguez-and",
+      },
+      { label: "Design Dinners: Inteligencia Artificial en Industrias Creativas" },
+      { label: "Design Dinners 2026: Organizing committee" },
+      { label: "Podcast: ADQLEB with Alberto Deida" },
+      { label: "Puerto Rico Association of Public Relations" },
+      { label: "Puerto Rico Association of Advertising Agencies" },
+      {
+        label:
+          "University of Puerto Rico, Faculty of Communication Studies: Panelist and Consultant on Curriculum Development",
+      },
+      { label: "El Salvador National Marketing Association" },
+      { label: "University of Puerto Rico Association of Advertising and Public Relations Association" },
+      { label: "Podcast: Neptuno Networks The Orbit" },
+      { label: "International Women's Economic Forum" },
+      { label: "Puerto Rico Next Tourism Summit" },
+      { label: "Recurrent speaker at Chamber of Commerce SMB's forums" },
     ],
   },
   {

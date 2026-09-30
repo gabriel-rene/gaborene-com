@@ -1,5 +1,6 @@
 import { SpeakingGallery } from "@/components/speaking-gallery"
 import { PressList } from "@/components/press-list"
+import { EngagementList } from "@/components/engagement-list"
 import { getEngagements, getPress } from "@/lib/content"
 import { routeAlternates, url, type Locale } from "@/lib/i18n"
 import { pageMetadata, SITE_NAME } from "@/lib/site-metadata"
@@ -20,8 +21,8 @@ const COPY = {
     ],
     home: "Home",
     paragraphs: [
-      "I speak and teach about AI — specifically the human-centered design and implementation of it. The technology is changing us. Understanding it is not optional.",
-      "Audiences have ranged from advertising and public relations associations to university faculties, chambers of commerce, and tourism summits, in Puerto Rico and abroad. The formats: keynotes, panels, podcasts, and curriculum consulting.",
+      "I speak and teach about technology and AI — specifically the human-centered design and implementation of it. The technology is changing us. Understanding it is not optional.",
+      "Audiences have ranged from advertising and public relations associations to university faculties, chambers of commerce, and tourism summits, in Puerto Rico and abroad. The formats: keynotes, panels, podcasts, and curriculum consulting. I’m also on the 2026 organizing committee for Design Dinners.",
     ],
     engagements: "Engagements",
     press: "Press",
@@ -42,8 +43,8 @@ const COPY = {
     ],
     home: "Inicio",
     paragraphs: [
-      "Doy charlas y enseño sobre IA, específicamente sobre cómo diseñarla e implementarla con las personas en el centro. La tecnología nos está cambiando. Entenderla no es opcional.",
-      "He hablado ante asociaciones de publicidad y relaciones públicas, facultades universitarias, cámaras de comercio y cumbres de turismo, en Puerto Rico y fuera. Los formatos: conferencias, paneles, podcasts y consultoría de currículo.",
+      "Doy charlas y enseño sobre tecnología e IA, específicamente sobre cómo diseñarlas e implementarlas con las personas en el centro. La tecnología nos está cambiando. Entenderla no es opcional.",
+      "He hablado ante asociaciones de publicidad y relaciones públicas, facultades universitarias, cámaras de comercio y cumbres de turismo, en Puerto Rico y fuera. Los formatos: conferencias, paneles, podcasts y consultoría de currículo. También formo parte del comité organizador de Design Dinners 2026.",
     ],
     engagements: "Participaciones",
     press: "Prensa",
@@ -110,16 +111,7 @@ export function SpeakingPage({ locale }: { locale: Locale }) {
           <p className="text-sm text-stone-600 dark:text-stone-400 uppercase tracking-widest">
             {copy.engagements}
           </p>
-          <ul className="flex flex-col gap-2 max-w-xl">
-            {engagements.map((engagement) => (
-              <li
-                key={engagement}
-                className="text-sm text-stone-600 dark:text-stone-400 before:content-['—'] before:mr-2 leading-snug"
-              >
-                {engagement}
-              </li>
-            ))}
-          </ul>
+          <EngagementList engagements={engagements} className="flex flex-col gap-2 max-w-xl" />
         </div>
 
         <div className="flex flex-col gap-4">

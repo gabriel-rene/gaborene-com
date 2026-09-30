@@ -8,6 +8,13 @@ import type { Locale } from "@/lib/i18n"
 
 const photos = [
   {
+    src: "/speaking/gabo-on-stage.jpg",
+    alt: {
+      en: "On stage, talking about AI",
+      es: "En tarima, hablando de IA",
+    },
+  },
+  {
     src: "/speaking/gabo-camara-de-comercio.jpg",
     alt: {
       en: "Speaking at Chamber of Commerce",
@@ -65,7 +72,7 @@ export function SpeakingGallery({ locale }: { locale: Locale }) {
     <>
       <div className="relative mt-5 w-full">
         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-0.5 bg-stone-200 dark:bg-stone-800" />
-        <div className="relative grid grid-cols-5 gap-2">
+        <div className="relative grid grid-cols-6 gap-2">
           {photos.map((photo) => (
             <motion.button
               key={photo.src}
@@ -81,7 +88,7 @@ export function SpeakingGallery({ locale }: { locale: Locale }) {
                 alt={photo.alt[locale]}
                 fill
                 className="object-cover"
-                sizes="(max-width: 576px) 20vw, 115px"
+                sizes="(max-width: 576px) 17vw, 96px"
               />
             </motion.button>
           ))}
