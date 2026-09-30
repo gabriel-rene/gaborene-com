@@ -5,7 +5,7 @@ const person = {
   "@type": "Person",
   "@id": `${BASE_URL}/#person`,
   name: "Gabriel René Rodríguez-Rovira",
-  alternateName: ["Gabriel Rene Rodriguez-Rovira", "gaborene"],
+  alternateName: ["Gabriel Rene Rodriguez-Rovira", "gaborene", "gabrielrodz"],
   url: BASE_URL,
   email: "gabriel@gaborene.com",
   jobTitle: "Digital Strategy & Technology Executive",

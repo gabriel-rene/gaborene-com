@@ -58,6 +58,7 @@ export const metadata: Metadata = {
     "Cannes Lions Puerto Rico",
     "Gabriel Rodríguez Rovira",
     "gaborene",
+    "gabrielrodz",
   ],
   authors: [
     {
