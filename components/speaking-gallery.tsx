@@ -10,8 +10,8 @@ const photos = [
   {
     src: "/speaking/gabo-on-stage.jpg",
     alt: {
-      en: "On stage, talking about AI",
-      es: "En tarima, hablando de IA",
+      en: "On stage at the Puerto Rico Advertising Conference (PRAD) 2026",
+      es: "En tarima en la Puerto Rico Advertising Conference (PRAD) 2026",
     },
   },
   {

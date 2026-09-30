@@ -20,10 +20,16 @@ const timeline: TimelineEntry[] = [
     body: "I started as a photographer and became Director of Photography within six months. I also handled the webmastering, sold ad space, and helped distribute the magazine, regularly sleeping on the office floor. I left after about a year: they never paid me, and they kept blocking my band gigs. Non-negotiable.",
   },
   {
-    yearRange: "December 2001–2003",
+    yearRange: "2001–2003",
     label: "Entry into advertising",
     headline: "Nexus",
     body: "I walked in because they were looking for a messenger. I walked out with a job as a graphic artist. Overnight shifts, color separations, print layouts, and a fast-developing love for branding. I worked overnight almost every day on bank and supermarket accounts. These were the last remnants of Puerto Rico’s glamorous advertising era: weekly happy hours, real camaraderie, genuine craft. I loved every minute of it, even the parts that were brutal.",
+  },
+  {
+    yearRange: "2003–2004",
+    label: "Branding",
+    headline: "Artefacto · Jr. Art Director",
+    body: "A branding studio: logos and corporate identities, all day. This is where I learned how a brand holds together across every execution, and where I fell for visual identity systems. A small shop that left a big mark. One of the most formative jobs I’ve had.",
   },
   {
     yearRange: "~2004–2008",
@@ -44,16 +50,16 @@ const timeline: TimelineEntry[] = [
     body: "When Puerto Rico’s government laid off more than 17,000 public employees, I went freelance and launched Sin Empleo Pero Con Ideas (“Without a Job But With Ideas”), giving free logo design to every laid-off public employee who wanted to start a business. It got coverage in the island’s principal newspaper and built a small community of contributors. It was one of the first things I did that felt like it mattered beyond the brief.",
   },
   {
-    yearRange: "2011–2013",
+    yearRange: "2010–2013",
     label: "Entrepreneurship",
     headline: "Alterno Media · Co-founder & Creative Director",
-    body: "I co-founded Alterno with two partners as one of Puerto Rico’s first 100% digital agencies. We started as two people and grew to ten. As Creative Director, I built the team, the processes, and the culture, and hired people who went on to do remarkable things: one is now Head of Communications at L’Oréal; another is a creative director at NAZA\\TBWA. The agency was eventually acquired.",
+    body: "I co-founded Alterno with two partners as one of Puerto Rico’s first 100% digital agencies. We started as two people and grew to ten, with clients like 3M, Ferrero, and Mon Chéri. As Creative Director, I built the team, the processes, and the culture, and hired people who went on to do remarkable things: one is now Head of Communications at L’Oréal; another is a creative director at NAZA\\TBWA.\n\nMost of the work was social media, back when brands were still figuring out what a community was. The Sal! Awards, Puerto Rico’s foodie guide, hired us to fix a backlash on its channels. We spent six months researching, polling, and talking to the community directly, then set the ground rules, the tone, the look, and the community standards. The community got more engaged and the sentiment turned around.\n\nFor Scotch-Brite, Hagamos Brillar a San Juan put nearly 1,000 volunteers on the streets of Old San Juan on a single Saturday, alongside a new city administration after decades of one-party rule. The spokesperson was a rising political media voice: an influencer strategy in 2012, before we called it that. We also built the website for Universidad Politécnica de Puerto Rico.",
   },
   {
     yearRange: "2013–2016",
     label: "Digital infrastructure",
     headline: "Explorer Media · Digital Director",
-    body: "I ran operations, client relationships, and digital strategy for public- and private-sector clients in Puerto Rico, Mexico, Panama, and the United States. We grew from four people to twelve, and revenue by 800% in three years. The political work took me across Latin America and the United States, and to some meetings in Mexico in bulletproof vans.\n\nFor the Puerto Rico Tourism Company, we rebuilt the official website with live UGC pulled from Instagram, Twitter, and Facebook (genuinely the wild west of social media at the time), the first real-time TripAdvisor review integration on the island (TripAdvisor later adopted it as a standard product offering after we asked for it), and the first booking engine ever deployed for Puerto Rico Tourism. The brand grew past a million organic followers, and the work was recognized by Condé Nast and Travel & Leisure. One of my proudest professional achievements.",
+    body: "I ran operations, client relationships, and digital strategy for public- and private-sector clients in Puerto Rico, Mexico, Panama, and the United States. We grew from four people to twelve, and revenue by 800% in three years. The political work took me across Latin America and the United States, and to some meetings in Mexico in bulletproof vans. I also led the social media strategy for Hit3001, with the Department of Economic Development and Telemundo, and was part of its creative development team.\n\nFor the Puerto Rico Tourism Company, we rebuilt the official website with live UGC pulled from Instagram, Twitter, and Facebook (genuinely the wild west of social media at the time), the first real-time TripAdvisor review integration on the island (TripAdvisor later adopted it as a standard product offering after we asked for it), and the first booking engine ever deployed for Puerto Rico Tourism. The brand grew past a million organic followers, and the work was recognized by Condé Nast and Travel & Leisure. One of my proudest professional achievements.",
   },
   {
     yearRange: "2016–2020",

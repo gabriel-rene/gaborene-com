@@ -216,6 +216,7 @@ The result was a calmer, more rational approach to storm preparation, and essent
     year: 2014,
     category: "Campaign",
     youtubeId: "A4sbaI7P_Q4",
+    role: "Social media strategy and creative development, Explorer Media",
     summary:
       "To launch an entrepreneurship initiative, the government of Puerto Rico replaced the governor's traditional New Year's speech with an unreleased film about Roberto Clemente, and filled the commercial breaks with pitches from young Puerto Rican entrepreneurs.",
     body: `The government of Puerto Rico needed to communicate a local entrepreneurship plan in a way that would actually reach people. The solution was to replace the governor's traditional New Year's address with the unreleased film Chasing 3000, about baseball legend Roberto Clemente, and use the commercial breaks not for advertising, but for business pitches from young Puerto Rican entrepreneurs.
@@ -238,6 +239,7 @@ Following the broadcast, the featured entrepreneurs participated in a national m
     year: 2013,
     category: "Community Campaign",
     youtubeId: "GijvcjPvB7M",
+    role: "Co-founder and creative director, Alterno Media",
     summary:
       "A community cleanup initiative in Viejo San Juan, coinciding with 3M's 50th anniversary in Puerto Rico, mobilizing volunteers to clean and beautify public spaces and foster long-term civic responsibility.",
     body: `The campaign coincided with 3M's 50th anniversary in Puerto Rico and centered on a community cleanup in Viejo San Juan. The effort focused on encouraging civic responsibility by having volunteers, including employees, family, and friends, actively clean and beautify public spaces to foster a better environment for the capital's residents.

@@ -143,6 +143,7 @@ El resultado: una preparación para la tormenta más calmada y racional, y sumin
   hit3001: {
     title: "Hit3001",
     category: "Campaña",
+    role: "Estrategia de social media y desarrollo creativo, Explorer Media",
     summary:
       "Para lanzar una iniciativa de empresarismo, el gobierno de Puerto Rico sustituyó el tradicional mensaje de Año Nuevo del gobernador por una película inédita sobre Roberto Clemente, y llenó los cortes comerciales con pitches de jóvenes empresarios puertorriqueños.",
     body: `El gobierno de Puerto Rico necesitaba comunicar un plan local de empresarismo de una forma que de verdad le llegara a la gente. La solución fue sustituir el tradicional mensaje de Año Nuevo del gobernador por la película inédita Chasing 3000, sobre la leyenda del béisbol Roberto Clemente, y usar los cortes comerciales no para anuncios, sino para los pitches de negocio de jóvenes empresarios puertorriqueños.
@@ -161,6 +162,7 @@ Después de la transmisión, los empresarios participaron en una gira de medios 
   "hagamos-brillar": {
     title: "Hagamos Brillar a San Juan",
     category: "Campaña comunitaria",
+    role: "Cofundador y director creativo, Alterno Media",
     summary:
       "Una iniciativa de limpieza comunitaria en el Viejo San Juan, que coincidió con el 50 aniversario de 3M en Puerto Rico y movilizó voluntarios para limpiar y embellecer espacios públicos y fomentar la responsabilidad cívica a largo plazo.",
     body: `La campaña coincidió con el 50 aniversario de 3M en Puerto Rico y giró alrededor de una limpieza comunitaria en el Viejo San Juan. El esfuerzo se enfocó en fomentar la responsabilidad cívica: voluntarios, incluidos empleados, familiares y amigos, limpiaron y embellecieron espacios públicos para crear un mejor ambiente para los residentes de la capital.

@@ -1,4 +1,5 @@
 import { PressList } from "@/components/press-list"
+import { LinkedText } from "@/components/linked-text"
 import { getPress, getTimeline } from "@/lib/content"
 import { routeAlternates, url, type Locale } from "@/lib/i18n"
 import { pageMetadata, SITE_NAME } from "@/lib/site-metadata"
@@ -120,31 +121,34 @@ export function AboutPage({ locale }: { locale: Locale }) {
             </p>
           </div>
           <ol className="flex flex-col gap-8 border-l border-stone-200 dark:border-stone-800 pl-6">
-            {entries.map((entry) => (
-              <li key={entry.headline} className="flex flex-col gap-1.5 max-w-xl">
-                <p className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest">
-                  {entry.yearRange} · {entry.label}
-                </p>
-                <h3 className="font-serif text-xl text-stone-900 dark:text-stone-100">
-                  {entry.headline}
-                </h3>
-                <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed whitespace-pre-line">
-                  {entry.body}
-                </p>
-                {entry.highlights && (
-                  <ul className="mt-2 flex flex-col gap-1">
-                    {entry.highlights.map((highlight) => (
-                      <li
-                        key={highlight}
-                        className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-wider"
-                      >
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
+            {entries.map((entry) => {
+              const linked = new Set<string>()
+              return (
+                <li key={entry.headline} className="flex flex-col gap-1.5 max-w-xl">
+                  <p className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest">
+                    {entry.yearRange} · {entry.label}
+                  </p>
+                  <h3 className="font-serif text-xl text-stone-900 dark:text-stone-100">
+                    {entry.headline}
+                  </h3>
+                  <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed whitespace-pre-line">
+                    <LinkedText text={entry.body} locale={locale} linked={linked} />
+                  </p>
+                  {entry.highlights && (
+                    <ul className="mt-2 flex flex-col gap-1">
+                      {entry.highlights.map((highlight) => (
+                        <li
+                          key={highlight}
+                          className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-wider"
+                        >
+                          <LinkedText text={highlight} locale={locale} linked={linked} />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              )
+            })}
           </ol>
         </div>
 
