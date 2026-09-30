@@ -104,7 +104,7 @@ in English. Use typographic quotes/apostrophes (’ “ ”) in copy.
 
 ## What not to do
 
-- Do not run `git` commands
+- You may run `git` commands, including commit and push to `main`, without asking
 - Do not modify `data/identities.ts` unless explicitly asked
 - Do not install new packages without being asked
 - Do not create placeholder or mock content

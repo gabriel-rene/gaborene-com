@@ -4,58 +4,75 @@ import { getOsNotes } from "@/lib/os-notes"
 
 const BASE_URL = "https://gaborene.com"
 
-// Bump when site content meaningfully changes
-const CONTENT_UPDATED = new Date("2026-07-13")
+// Bump the matching date when a page's content meaningfully changes
+const UPDATED = {
+  home: new Date("2026-09-30"),
+  about: new Date("2026-09-02"),
+  work: new Date("2026-09-30"),
+  speaking: new Date("2026-09-02"),
+  lab: new Date("2026-08-17"),
+  caseStudyDefault: new Date("2026-07-13"),
+}
+
+const CASE_STUDY_UPDATED: Record<string, Date> = {
+  voyturisteando: new Date("2026-09-30"),
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const caseStudyUrls: MetadataRoute.Sitemap = caseStudies.map((study) => ({
     url: `${BASE_URL}/work/${study.slug}`,
-    lastModified: CONTENT_UPDATED,
+    lastModified: CASE_STUDY_UPDATED[study.slug] ?? UPDATED.caseStudyDefault,
     changeFrequency: "monthly",
     priority: 0.7,
   }))
 
-  const osNoteUrls: MetadataRoute.Sitemap = getOsNotes().map((note) => ({
+  const osNotes = getOsNotes()
+  const osNoteUrls: MetadataRoute.Sitemap = osNotes.map((note) => ({
     url: `${BASE_URL}/lab/notes/${note.slug}`,
-    lastModified: CONTENT_UPDATED,
+    lastModified: new Date(note.date),
     changeFrequency: "monthly",
     priority: 0.6,
   }))
 
+  const latestNote = osNotes.reduce(
+    (latest, note) => (note.date > latest ? note.date : latest),
+    "",
+  )
+
   return [
     {
       url: BASE_URL,
-      lastModified: CONTENT_UPDATED,
+      lastModified: UPDATED.home,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: `${BASE_URL}/about`,
-      lastModified: CONTENT_UPDATED,
+      lastModified: UPDATED.about,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/work`,
-      lastModified: CONTENT_UPDATED,
+      lastModified: UPDATED.work,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/speaking`,
-      lastModified: CONTENT_UPDATED,
+      lastModified: UPDATED.speaking,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${BASE_URL}/lab`,
-      lastModified: CONTENT_UPDATED,
+      lastModified: UPDATED.lab,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/lab/notes`,
-      lastModified: CONTENT_UPDATED,
+      lastModified: latestNote ? new Date(latestNote) : UPDATED.lab,
       changeFrequency: "weekly",
       priority: 0.6,
     },
