@@ -21,6 +21,7 @@ const COPY = {
     intro:
       "I build to understand. These are personal projects, made on nights and weekends, mostly with AI in the loop. That last part is the point: I teach human-centered AI implementation because I practice it.",
     private: "Private",
+    live: "Live",
     notesTitle: "Notes from the OS",
     notesBody: "Research digests written by the machine, curated by me.",
   },
@@ -40,6 +41,7 @@ const COPY = {
     intro:
       "Construyo para entender. Estos son proyectos personales, hechos de noche y en fines de semana, casi siempre con IA en el proceso. Eso último es el punto: enseño implementación de IA centrada en las personas porque la practico.",
     private: "Privado",
+    live: "En vivo",
     notesTitle: "Notes from the OS",
     notesBody: "Resúmenes de investigación escritos por la máquina, curados por mí. En inglés.",
   },
@@ -102,16 +104,31 @@ export function LabPage({ locale }: { locale: Locale }) {
                 <h2 className="font-serif text-2xl text-stone-900 dark:text-stone-100">
                   {project.name}
                 </h2>
-                {project.github ? (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors shrink-0"
-                  >
-                    GitHub
-                    <ExternalLink size={13} />
-                  </a>
+                {project.github || project.live ? (
+                  <div className="flex items-center gap-4 shrink-0">
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+                      >
+                        {copy.live}
+                        <ExternalLink size={13} />
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+                      >
+                        GitHub
+                        <ExternalLink size={13} />
+                      </a>
+                    )}
+                  </div>
                 ) : (
                   <span className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest shrink-0">
                     {copy.private}

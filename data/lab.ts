@@ -3,6 +3,7 @@ export interface LabProject {
   description: string
   stack: string
   github?: string
+  live?: string
 }
 
 const labProjects: LabProject[] = [
@@ -39,6 +40,7 @@ const labProjects: LabProject[] = [
       "A 3D reconstruction of the hand-powered river ferry that crossed the Río Grande de Loíza from the 1820s until a bridge replaced it in 1986. Pick a decade and watch the ferry, the mangroves and the crossing change. Every detail comes from a sourced research dossier; anything inferred is labeled as inferred. Work in progress.",
     stack: "React Three Fiber · TypeScript · OpenStreetMap",
     github: "https://github.com/gabriel-rene/ancon-de-loiza",
+    live: "https://gabriel-rene.github.io/ancon-de-loiza/",
   },
   {
     name: "Style Repo",
@@ -46,6 +48,7 @@ const labProjects: LabProject[] = [
       "A browsable reference library of graphic design, illustration and typographic styles, from Victorian ephemera to WPA posters. One YAML file per style, enriched from Getty AAT, Wikidata and open-license museum images. Dates and origins that I can’t verify stay out.",
     stack: "Astro · Node · SQLite · Wikidata",
     github: "https://github.com/gabriel-rene/style-repo",
+    live: "https://gabriel-rene.github.io/style-repo/",
   },
   {
     name: "gaborene.com",
