@@ -9,7 +9,7 @@ const labDescriptionsEs: Record<string, string> = {
   "World Cup 26":
     "Visualiza datos del Mundial 2026 contra datos públicos de cada país (PIB, población, clima) buscando correlaciones divertidas. Lo hice porque la pregunta era divertida.",
   "El Ancón de Loíza":
-    "Una reconstrucción en 3D del ancón, la barcaza movida a mano que cruzaba el Río Grande de Loíza desde la década de 1820 hasta que un puente la reemplazó en 1986. Escoges una década y ves cómo cambian el ancón, los mangles y el cruce. Cada detalle sale de una investigación con fuentes; lo que es inferido dice que es inferido. Todavía en proceso.",
+    "Una reconstrucción en 3D del ancón, la barcaza movida a mano que cruzaba el Río Grande de Loíza desde la década de 1820 hasta que un puente la reemplazó en 1986. Escoges una década y ves cómo cambian el ancón, los mangles y el cruce. Todavía en proceso.",
   "Style Repo":
     "Una biblioteca de referencia de estilos de diseño gráfico, ilustración y tipografía, desde el efímero victoriano hasta los carteles del WPA. Un archivo YAML por estilo, enriquecido con Getty AAT, Wikidata e imágenes de museos con licencia abierta. Las fechas y orígenes que no puedo verificar se quedan fuera.",
   "gaborene.com":

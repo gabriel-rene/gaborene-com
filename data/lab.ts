@@ -37,7 +37,7 @@ const labProjects: LabProject[] = [
   {
     name: "El Ancón de Loíza",
     description:
-      "A 3D reconstruction of the hand-powered river ferry that crossed the Río Grande de Loíza from the 1820s until a bridge replaced it in 1986. Pick a decade and watch the ferry, the mangroves and the crossing change. Every detail comes from a sourced research dossier; anything inferred is labeled as inferred. Work in progress.",
+      "A 3D reconstruction of the hand-powered river ferry that crossed the Río Grande de Loíza from the 1820s until a bridge replaced it in 1986. Pick a decade and watch the ferry, the mangroves and the crossing change. Work in progress.",
     stack: "React Three Fiber · TypeScript · OpenStreetMap",
     github: "https://github.com/gabriel-rene/ancon-de-loiza",
     live: "https://gabriel-rene.github.io/ancon-de-loiza/",
