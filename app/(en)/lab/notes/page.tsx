@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://gaborene.com/lab/notes",
   },
+  // Machine-written digests: readable here, kept out of search results
+  robots: { index: false, follow: true },
 }
 
 const notesPageSchema = {

@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `https://gaborene.com/lab/notes/${slug}`,
     },
+    robots: { index: false, follow: true },
   }
 }
 

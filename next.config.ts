@@ -1,6 +1,30 @@
 import type { NextConfig } from "next"
+import { getOsNotes } from "./lib/os-notes"
 
 const nextConfig: NextConfig = {
+  experimental: {
+    globalNotFound: true,
+  },
+  async redirects() {
+    const noteRedirects = getOsNotes()
+      .filter((note) => note.legacySlug !== note.slug)
+      .map((note) => ({
+        source: `/lab/notes/${note.legacySlug}`,
+        destination: `/lab/notes/${note.slug}`,
+        permanent: true,
+      }))
+    return [
+      ...noteRedirects,
+      {
+        // Duplicate of the note above, removed 2026-09-30
+        source:
+          "/lab/notes/2026-08-15--the-cybernetic-teammate-a-field-experiment-on-generative-ai---dt-20260815-225343-c010--claude-personal",
+        destination:
+          "/lab/notes/the-cybernetic-teammate-a-field-experiment-on-generative-ai",
+        permanent: true,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {

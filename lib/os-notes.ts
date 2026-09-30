@@ -3,6 +3,8 @@ import path from "node:path"
 
 export interface OsNote {
   slug: string
+  /** The publisher's filename, which was the URL slug before clean slugs */
+  legacySlug: string
   title: string
   date: string
   model: string
@@ -56,21 +58,31 @@ function assertNoRawHtmlHazard(slug: string, body: string) {
   }
 }
 
+// "2026-08-28--run-qwen3-locally--dt-20260828-193501-193d" → "run-qwen3-locally"
+function cleanSlug(file: string): string {
+  return file
+    .replace(/^\d{4}-\d{2}-\d{2}--/, "")
+    .replace(/--dt-.*$/, "")
+    .replace(/-+$/, "")
+}
+
 export function getOsNotes(): OsNote[] {
   if (!fs.existsSync(CONTENT_DIR)) return []
-  return fs
+  const notes = fs
     .readdirSync(CONTENT_DIR)
     .filter((f) => f.endsWith(".md"))
     .sort()
     .reverse()
     .map((f) => {
-      const slug = f.replace(/\.md$/, "")
+      const legacySlug = f.replace(/\.md$/, "")
+      const slug = cleanSlug(legacySlug)
       const { meta, body } = parseFrontmatter(
         fs.readFileSync(path.join(CONTENT_DIR, f), "utf8"),
       )
-      assertNoRawHtmlHazard(slug, body)
+      assertNoRawHtmlHazard(legacySlug, body)
       return {
         slug,
+        legacySlug,
         title: meta.title,
         date: meta.date,
         model: meta.model,
@@ -79,4 +91,12 @@ export function getOsNotes(): OsNote[] {
         body,
       }
     })
+
+  // A republished note shares its slug with the earlier copy; keep the newest.
+  const seen = new Set<string>()
+  return notes.filter((note) => {
+    if (seen.has(note.slug)) return false
+    seen.add(note.slug)
+    return true
+  })
 }

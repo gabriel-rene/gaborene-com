@@ -1,60 +1,77 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink } from "lucide-react"
-import caseStudies, { cardThumbnail } from "@/data/work"
-
-export const metadata: Metadata = {
-  title: "Work",
-  description:
-    "Selected case studies in digital strategy, creative technology, and AI-driven campaigns. Award-winning work from Puerto Rico, Cannes Lions, Effie, El Ojo de Iberoamérica, FIAP, and more.",
-  openGraph: {
-    title: "Work | Gabriel René Rodríguez-Rovira",
-    description:
-      "Selected case studies in digital strategy, creative technology, and AI-driven campaigns. Award-winning work from Puerto Rico, Cannes Lions, Effie, El Ojo de Iberoamérica, FIAP, and more.",
-    url: "https://gaborene.com/work",
-  },
-  alternates: {
-    canonical: "https://gaborene.com/work",
-  },
-}
+import { cardThumbnail } from "@/data/work"
+import { getCaseStudies } from "@/lib/content"
+import { caseStudyPath, routeAlternates, url, type Locale } from "@/lib/i18n"
+import { pageMetadata, SITE_NAME } from "@/lib/site-metadata"
 
 const PLAYLIST_URL =
   "https://www.youtube.com/playlist?list=PL1UFCpUVmHhBJ2R6wjU1OzZagKzCVSBpA"
 
 const FEATURED_SLUGS = ["pasaporte-aventura", "eyetracker"]
 
-const workPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": "https://gaborene.com/work",
-  url: "https://gaborene.com/work",
-  name: "Work | Gabriel René Rodríguez-Rovira",
-  description:
-    "Selected case studies in digital strategy, creative technology, and AI-driven campaigns from Puerto Rico.",
-  author: { "@id": "https://gaborene.com/#person" },
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://gaborene.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Work",
-        item: "https://gaborene.com/work",
-      },
-    ],
+const AWARDS = [
+  "Cannes Lions",
+  "El Ojo de Iberoamérica",
+  "The One Show",
+  "Clio Awards",
+  "Effie Awards",
+  "Cúspide Awards",
+  "FIAP",
+  "SME Digital Awards",
+]
+
+const COPY = {
+  en: {
+    title: "Work",
+    description:
+      "Case studies in digital strategy, creative technology, and AI-driven campaigns from Puerto Rico. Work awarded at Cannes Lions, Effie, El Ojo, and FIAP.",
+    home: "Home",
+    watchAll: "Watch all on YouTube",
   },
+  es: {
+    title: "Trabajo",
+    description:
+      "Casos de estrategia digital, tecnología creativa y campañas con IA desde Puerto Rico. Trabajo premiado en Cannes Lions, Effie, El Ojo y FIAP.",
+    home: "Inicio",
+    watchAll: "Ver todo en YouTube",
+  },
+} satisfies Record<Locale, unknown>
+
+export function workMetadata(locale: Locale) {
+  const copy = COPY[locale]
+  return pageMetadata({
+    locale,
+    title: copy.title,
+    description: copy.description,
+    alternates: routeAlternates(locale, "work"),
+  })
 }
 
-export default function Work() {
-  const featured = caseStudies.filter((s) => FEATURED_SLUGS.includes(s.slug))
-  const rest = caseStudies.filter((s) => !FEATURED_SLUGS.includes(s.slug))
+export function WorkPage({ locale }: { locale: Locale }) {
+  const copy = COPY[locale]
+  const studies = getCaseStudies(locale)
+  const featured = studies.filter((s) => FEATURED_SLUGS.includes(s.slug))
+  const rest = studies.filter((s) => !FEATURED_SLUGS.includes(s.slug))
+
+  const workPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": url(locale, "work"),
+    url: url(locale, "work"),
+    name: `${copy.title} | ${SITE_NAME}`,
+    description: copy.description,
+    inLanguage: locale,
+    author: { "@id": "https://gaborene.com/#person" },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: copy.home, item: url(locale, "home") },
+        { "@type": "ListItem", position: 2, name: copy.title, item: url(locale, "work") },
+      ],
+    },
+  }
 
   return (
     <main className="flex flex-col flex-1 px-8 pt-32 pb-16 max-w-5xl mx-auto w-full">
@@ -63,9 +80,9 @@ export default function Work() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(workPageSchema) }}
       />
       <div className="flex flex-col gap-12">
-        <div className="flex items-end justify-between">
+        <div className="flex items-end justify-between gap-4">
           <h1 className="font-serif text-4xl md:text-5xl text-stone-900 dark:text-stone-100">
-            Work
+            {copy.title}
           </h1>
           <a
             href={PLAYLIST_URL}
@@ -73,7 +90,7 @@ export default function Work() {
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300 transition-colors"
           >
-            Watch all on YouTube
+            {copy.watchAll}
             <ExternalLink size={13} />
           </a>
         </div>
@@ -82,7 +99,7 @@ export default function Work() {
           {featured.map((study) => (
             <Link
               key={study.slug}
-              href={`/work/${study.slug}`}
+              href={caseStudyPath(locale, study.slug)}
               className="group flex flex-col gap-3"
             >
               <div className="relative aspect-video overflow-hidden bg-stone-100 dark:bg-stone-900">
@@ -110,16 +127,7 @@ export default function Work() {
         </div>
 
         <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 py-4 border-y border-stone-200 dark:border-stone-800">
-          {[
-            "Cannes Lions",
-            "El Ojo de Iberoamérica",
-            "The One Show",
-            "Clio Awards",
-            "Effie Awards",
-            "Cúspide Awards",
-            "FIAP",
-            "SME Digital Awards",
-          ].map((award) => (
+          {AWARDS.map((award) => (
             <span
               key={award}
               className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest"
@@ -133,7 +141,7 @@ export default function Work() {
           {rest.map((study) => (
             <Link
               key={study.slug}
-              href={`/work/${study.slug}`}
+              href={caseStudyPath(locale, study.slug)}
               className="group flex flex-col gap-3"
             >
               <div className="relative aspect-video overflow-hidden bg-stone-100 dark:bg-stone-900">

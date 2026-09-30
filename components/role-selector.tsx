@@ -3,10 +3,17 @@
 import { useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import identities, { type Identity } from "@/data/identities"
+import type { Identity } from "@/data/identities"
+import { path, type Locale } from "@/lib/i18n"
 import { SpeakingGallery } from "@/components/speaking-gallery"
 
-export function RoleSelector() {
+export function RoleSelector({
+  locale,
+  identities,
+}: {
+  locale: Locale
+  identities: Identity[]
+}) {
   const [active, setActive] = useState<Identity | null>(identities[0])
 
   return (
@@ -59,14 +66,14 @@ export function RoleSelector() {
                   ))}
                 </ul>
               )}
-              {active.role === "educator on AI" && (
+              {active.engagements && (
                 <>
-                  <SpeakingGallery />
+                  <SpeakingGallery locale={locale} />
                   <Link
-                    href="/speaking"
+                    href={path(locale, "speaking")}
                     className="inline-block mt-4 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                   >
-                    More on speaking
+                    {locale === "es" ? "Más sobre mis charlas" : "More on speaking"}
                   </Link>
                 </>
               )}

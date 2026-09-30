@@ -17,6 +17,12 @@ export interface CaseStudy {
   next?: string
 }
 
+/** The translatable fields of a case study */
+export type CaseStudyText = Pick<
+  CaseStudy,
+  "title" | "category" | "summary" | "body" | "role" | "pullQuote" | "awards"
+>
+
 // Videos without a maxresdefault thumbnail on YouTube's CDN
 const NO_MAXRES = new Set(["GijvcjPvB7M"])
 

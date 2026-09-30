@@ -1,82 +1,59 @@
 import type { MetadataRoute } from "next"
 import caseStudies from "@/data/work"
-import { getOsNotes } from "@/lib/os-notes"
-
-const BASE_URL = "https://gaborene.com"
+import {
+  caseStudyAlternates,
+  routeAlternates,
+  type Locale,
+  type RouteKey,
+} from "@/lib/i18n"
 
 // Bump the matching date when a page's content meaningfully changes
 const UPDATED = {
   home: new Date("2026-09-30"),
-  about: new Date("2026-09-02"),
+  about: new Date("2026-09-30"),
   work: new Date("2026-09-30"),
-  speaking: new Date("2026-09-02"),
-  lab: new Date("2026-08-17"),
-  caseStudyDefault: new Date("2026-07-13"),
+  speaking: new Date("2026-09-30"),
+  lab: new Date("2026-09-30"),
+  caseStudyDefault: new Date("2026-09-30"),
 }
 
-const CASE_STUDY_UPDATED: Record<string, Date> = {
-  voyturisteando: new Date("2026-09-30"),
-}
+const PAGES: { key: RouteKey; updated: Date; priority: number }[] = [
+  { key: "home", updated: UPDATED.home, priority: 1 },
+  { key: "about", updated: UPDATED.about, priority: 0.9 },
+  { key: "work", updated: UPDATED.work, priority: 0.9 },
+  { key: "speaking", updated: UPDATED.speaking, priority: 0.8 },
+  { key: "lab", updated: UPDATED.lab, priority: 0.7 },
+]
 
+const LOCALES: Locale[] = ["en", "es"]
+
+// Lab notes are machine-written and noindexed, so they stay out of the sitemap
 export default function sitemap(): MetadataRoute.Sitemap {
-  const caseStudyUrls: MetadataRoute.Sitemap = caseStudies.map((study) => ({
-    url: `${BASE_URL}/work/${study.slug}`,
-    lastModified: CASE_STUDY_UPDATED[study.slug] ?? UPDATED.caseStudyDefault,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }))
-
-  const osNotes = getOsNotes()
-  const osNoteUrls: MetadataRoute.Sitemap = osNotes.map((note) => ({
-    url: `${BASE_URL}/lab/notes/${note.slug}`,
-    lastModified: new Date(note.date),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }))
-
-  const latestNote = osNotes.reduce(
-    (latest, note) => (note.date > latest ? note.date : latest),
-    "",
+  const pages = PAGES.flatMap(({ key, updated, priority }) =>
+    LOCALES.map((locale) => {
+      const { canonical, languages } = routeAlternates(locale, key)
+      return {
+        url: canonical,
+        lastModified: updated,
+        changeFrequency: "monthly" as const,
+        priority,
+        alternates: { languages: { en: languages.en, es: languages.es } },
+      }
+    }),
   )
 
-  return [
-    {
-      url: BASE_URL,
-      lastModified: UPDATED.home,
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${BASE_URL}/about`,
-      lastModified: UPDATED.about,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/work`,
-      lastModified: UPDATED.work,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/speaking`,
-      lastModified: UPDATED.speaking,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/lab`,
-      lastModified: UPDATED.lab,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/lab/notes`,
-      lastModified: latestNote ? new Date(latestNote) : UPDATED.lab,
-      changeFrequency: "weekly",
-      priority: 0.6,
-    },
-    ...caseStudyUrls,
-    ...osNoteUrls,
-  ]
+  const studies = caseStudies.flatMap((study) =>
+    LOCALES.map((locale) => {
+      const { canonical, languages } = caseStudyAlternates(locale, study.slug)
+      return {
+        url: canonical,
+        lastModified: UPDATED.caseStudyDefault,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+        alternates: { languages: { en: languages.en, es: languages.es } },
+      }
+    }),
+  )
+
+  return [...pages, ...studies]
 }

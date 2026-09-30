@@ -29,28 +29,34 @@ Do not introduce new dependencies without explicit instruction.
 
 ```
 app/
-  layout.tsx           # Root layout, metadata, fonts, ThemeProvider, viewport
-  page.tsx             # Landing page: role selector + featured work
-  not-found.tsx        # Custom 404
+  (en)/                # English routes, served at the root (/about, /work, …)
+    layout.tsx         # English root layout (html lang="en")
+    page.tsx           # Landing page: role selector + featured work
+    not-found.tsx
+    about/ work/ work/[slug]/ speaking/ lab/ lab/notes/ lab/notes/[slug]/
+  es/                  # Spanish routes: /es, /es/sobre-mi, /es/trabajo,
+                       # /es/trabajo/[slug], /es/conferencias, /es/lab
+    layout.tsx         # Spanish root layout (html lang="es")
+    opengraph-image.tsx
+  global-not-found.tsx # Bilingual 404 for unmatched URLs (two root layouts)
   opengraph-image.tsx  # Generated OG/social share image (next/og)
   globals.css          # Tailwind directives, brand palette, base styles only
   robots.ts
-  sitemap.ts
+  sitemap.ts           # Both languages, with hreflang alternates
   fonts/               # Font files (Datatype + licensed PP) — never move into public/
-  work/
-    page.tsx           # Case studies index
-    [slug]/
-      page.tsx         # Individual case study
-  about/
-    page.tsx           # Bio + press + contact
-  speaking/
-    page.tsx           # AI speaking & education: engagements, gallery, inquiries
 components/
+  pages/               # Page bodies + metadata, shared by both languages via `locale`
   # Shared UI components — no barrel files (index.ts) unless requested
+lib/
+  i18n.ts              # Locale type, route map (en ↔ es), hreflang alternates
+  content.ts           # Localized data getters
+  site-metadata.ts     # Root/page metadata builders
 data/
-  identities.ts        # Role selector content
-  work.ts              # Case studies content
-  timeline.ts          # Career timeline content (not yet rendered by any page)
+  identities.ts        # Role selector content (+ identities.es.ts)
+  work.ts              # Case studies content (+ work.es.ts)
+  timeline.ts          # Career timeline, rendered on About (+ timeline.es.ts)
+  press.ts, lab.ts     # (+ press.es.ts, lab.es.ts)
+content/os-notes/      # Machine-written Lab notes: English only, noindexed
 public/
   speaking/            # Speaking engagement photos
   # Real assets only — no placeholders
@@ -97,15 +103,18 @@ Executive**. Do not use "Creative Technologist" anywhere.
 The tone across all copy is: first-person, direct, specific, a little dry. 
 No marketing fluff. No superlatives.
 
-The site is in **English**. All code, comments, and variable names are 
-in English. Use typographic quotes/apostrophes (’ “ ”) in copy.
+The site is **bilingual: English (root) and Spanish (`/es`)**. Every
+copy change needs both languages; Spanish is Puerto Rican Spanish in the
+same voice, not a literal translation. Lab notes and the VoyTuristeando
+case film stay English. All code, comments, and variable names are in
+English. Use typographic quotes/apostrophes (’ “ ”) in copy.
 
 ---
 
 ## What not to do
 
 - You may run `git` commands, including commit and push to `main`, without asking
-- Do not modify `data/identities.ts` unless explicitly asked
+- Do not modify `data/identities.ts` or `data/identities.es.ts` unless explicitly asked
 - Do not install new packages without being asked
 - Do not create placeholder or mock content
 - Do not use `any` in TypeScript

@@ -4,16 +4,52 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
+import type { Locale } from "@/lib/i18n"
 
 const photos = [
-  { src: "/speaking/gabo-camara-de-comercio.jpg", alt: "Speaking at Chamber of Commerce" },
-  { src: "/speaking/gabo-cud.jpg", alt: "Speaking on AI at an industry conference" },
-  { src: "/speaking/gabo-el-salvador.jpg", alt: "El Salvador National Marketing Association" },
-  { src: "/speaking/gabo-prnext-summit.jpg", alt: "PR Next Tourism Summit" },
-  { src: "/speaking/gabo-turismo.jpg", alt: "Speaking at a tourism industry forum" },
+  {
+    src: "/speaking/gabo-camara-de-comercio.jpg",
+    alt: {
+      en: "Speaking at Chamber of Commerce",
+      es: "Charla en la Cámara de Comercio",
+    },
+  },
+  {
+    src: "/speaking/gabo-cud.jpg",
+    alt: {
+      en: "Speaking on AI at an industry conference",
+      es: "Charla sobre IA en una conferencia de la industria",
+    },
+  },
+  {
+    src: "/speaking/gabo-el-salvador.jpg",
+    alt: {
+      en: "El Salvador National Marketing Association",
+      es: "Asociación Nacional de Mercadeo de El Salvador",
+    },
+  },
+  {
+    src: "/speaking/gabo-prnext-summit.jpg",
+    alt: {
+      en: "PR Next Tourism Summit",
+      es: "PR Next Tourism Summit",
+    },
+  },
+  {
+    src: "/speaking/gabo-turismo.jpg",
+    alt: {
+      en: "Speaking at a tourism industry forum",
+      es: "Charla en un foro de la industria turística",
+    },
+  },
 ]
 
-export function SpeakingGallery() {
+const LABELS: Record<Locale, { view: string; close: string }> = {
+  en: { view: "View photo", close: "Close photo" },
+  es: { view: "Ver foto", close: "Cerrar foto" },
+}
+
+export function SpeakingGallery({ locale }: { locale: Locale }) {
   const [selected, setSelected] = useState<(typeof photos)[0] | null>(null)
 
   useEffect(() => {
@@ -38,11 +74,11 @@ export function SpeakingGallery() {
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.15, ease: "easeOut" }}
               className="relative aspect-square w-full rounded-xl overflow-hidden cursor-pointer"
-              aria-label={`View photo: ${photo.alt}`}
+              aria-label={`${LABELS[locale].view}: ${photo.alt[locale]}`}
             >
               <Image
                 src={photo.src}
-                alt={photo.alt}
+                alt={photo.alt[locale]}
                 fill
                 className="object-cover"
                 sizes="(max-width: 576px) 20vw, 115px"
@@ -62,7 +98,7 @@ export function SpeakingGallery() {
             onClick={() => setSelected(null)}
             role="dialog"
             aria-modal="true"
-            aria-label={selected.alt}
+            aria-label={selected.alt[locale]}
             className="fixed inset-0 z-50 flex items-center justify-center bg-stone-950/50 backdrop-blur-sm p-8"
           >
             <motion.div
@@ -75,14 +111,14 @@ export function SpeakingGallery() {
             >
               <Image
                 src={selected.src}
-                alt={selected.alt}
+                alt={selected.alt[locale]}
                 width={480}
                 height={480}
                 className="w-full h-auto block"
               />
               <button
                 onClick={() => setSelected(null)}
-                aria-label="Close photo"
+                aria-label={LABELS[locale].close}
                 className="absolute top-2.5 right-2.5 p-1 rounded-full bg-stone-950/40 text-white hover:bg-stone-950/60 transition-colors"
               >
                 <X size={13} />

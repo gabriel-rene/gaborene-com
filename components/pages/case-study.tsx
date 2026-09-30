@@ -1,55 +1,66 @@
-import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight } from "lucide-react"
-import caseStudies, { ogThumbnail } from "@/data/work"
+import { ogThumbnail } from "@/data/work"
 import { FilmPlayer } from "@/components/voyturisteando-film/film-player"
+import { getCaseStudies } from "@/lib/content"
+import {
+  caseStudyAlternates,
+  caseStudyPath,
+  caseStudyUrl,
+  path,
+  url,
+  type Locale,
+} from "@/lib/i18n"
+import { metaDescription, pageMetadata } from "@/lib/site-metadata"
 
-type Props = {
-  params: Promise<{ slug: string }>
+const COPY: Record<
+  Locale,
+  { home: string; work: string; role: string; recognition: string; next: string }
+> = {
+  en: {
+    home: "Home",
+    work: "Work",
+    role: "My role",
+    recognition: "Recognition",
+    next: "Watch next",
+  },
+  es: {
+    home: "Inicio",
+    work: "Trabajo",
+    role: "Mi rol",
+    recognition: "Reconocimientos",
+    next: "Lo que sigue",
+  },
 }
 
-export async function generateStaticParams() {
-  return caseStudies.map((study) => ({ slug: study.slug }))
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
-  const study = caseStudies.find((s) => s.slug === slug)
+export function caseStudyMetadata(locale: Locale, slug: string) {
+  const study = getCaseStudies(locale).find((s) => s.slug === slug)
   if (!study) return {}
-  return {
+  return pageMetadata({
+    locale,
     title: study.title,
-    description: study.summary,
-    openGraph: {
-      title: `${study.title} | Gabriel René Rodríguez-Rovira`,
-      description: study.summary,
-      url: `https://gaborene.com/work/${slug}`,
-      images: [
-        {
-          url: ogThumbnail(study),
-          alt: study.title,
-        },
-      ],
-    },
-    alternates: {
-      canonical: `https://gaborene.com/work/${slug}`,
-    },
-  }
+    description: metaDescription(study.summary),
+    alternates: caseStudyAlternates(locale, slug),
+    images: [{ url: ogThumbnail(study), alt: study.title }],
+  })
 }
 
-export default async function CaseStudy({ params }: Props) {
-  const { slug } = await params
-  const study = caseStudies.find((s) => s.slug === slug)
+export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }) {
+  const copy = COPY[locale]
+  const studies = getCaseStudies(locale)
+  const study = studies.find((s) => s.slug === slug)
   if (!study) notFound()
-  const next = study.next ? caseStudies.find((s) => s.slug === study.next) : undefined
+  const next = study.next ? studies.find((s) => s.slug === study.next) : undefined
 
   const caseStudySchema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "@id": `https://gaborene.com/work/${study.slug}`,
-    url: `https://gaborene.com/work/${study.slug}`,
+    "@id": caseStudyUrl(locale, study.slug),
+    url: caseStudyUrl(locale, study.slug),
     name: study.title,
     description: study.summary,
+    inLanguage: locale,
     author: { "@id": "https://gaborene.com/#person" },
     dateCreated: String(study.year),
     genre: study.category,
@@ -57,9 +68,7 @@ export default async function CaseStudy({ params }: Props) {
       "@type": "AdministrativeArea",
       name: "Puerto Rico",
     },
-    ...(study.awards && study.awards.length > 0
-      ? { award: study.awards }
-      : {}),
+    ...(study.awards && study.awards.length > 0 ? { award: study.awards } : {}),
     ...(study.youtubeId
       ? {
           video: {
@@ -75,23 +84,13 @@ export default async function CaseStudy({ params }: Props) {
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://gaborene.com",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Work",
-          item: "https://gaborene.com/work",
-        },
+        { "@type": "ListItem", position: 1, name: copy.home, item: url(locale, "home") },
+        { "@type": "ListItem", position: 2, name: copy.work, item: url(locale, "work") },
         {
           "@type": "ListItem",
           position: 3,
           name: study.title,
-          item: `https://gaborene.com/work/${study.slug}`,
+          item: caseStudyUrl(locale, study.slug),
         },
       ],
     },
@@ -109,11 +108,11 @@ export default async function CaseStudy({ params }: Props) {
       />
       <div className="flex flex-col gap-10">
         <Link
-          href="/work"
+          href={path(locale, "work")}
           className="flex items-center gap-1.5 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300 transition-colors w-fit"
         >
           <ArrowLeft size={13} />
-          Work
+          {copy.work}
         </Link>
 
         <div className="flex flex-col gap-3">
@@ -128,9 +127,7 @@ export default async function CaseStudy({ params }: Props) {
           </p>
           {study.role && (
             <p className="text-sm text-stone-600 dark:text-stone-400">
-              <span className="uppercase tracking-widest text-xs">
-                My role
-              </span>{" "}
+              <span className="uppercase tracking-widest text-xs">{copy.role}</span>{" "}
               · {study.role}
             </p>
           )}
@@ -170,14 +167,11 @@ export default async function CaseStudy({ params }: Props) {
           {study.awards && study.awards.length > 0 && (
             <div className="flex flex-col gap-2 pt-4 border-t border-stone-200 dark:border-stone-800">
               <p className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest">
-                Recognition
+                {copy.recognition}
               </p>
               <ul className="flex flex-col gap-1">
                 {study.awards.map((award) => (
-                  <li
-                    key={award}
-                    className="text-sm text-stone-600 dark:text-stone-400"
-                  >
+                  <li key={award} className="text-sm text-stone-600 dark:text-stone-400">
                     {award}
                   </li>
                 ))}
@@ -187,11 +181,11 @@ export default async function CaseStudy({ params }: Props) {
 
           {next && (
             <Link
-              href={`/work/${next.slug}`}
+              href={caseStudyPath(locale, next.slug)}
               className="group flex flex-col gap-1 pt-4 border-t border-stone-200 dark:border-stone-800"
             >
               <span className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest">
-                Watch next
+                {copy.next}
               </span>
               <span className="flex items-center gap-2 font-serif text-2xl text-stone-900 dark:text-stone-100 group-hover:text-stone-600 dark:group-hover:text-stone-400 transition-colors">
                 {next.title}
