@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { RoleSelector } from "@/components/role-selector"
-import caseStudies from "@/data/work"
+import caseStudies, { cardThumbnail } from "@/data/work"
 
 export const metadata: Metadata = {
   alternates: {
@@ -63,7 +63,7 @@ export default function Home() {
               >
                 <div className="relative aspect-video overflow-hidden bg-stone-200 dark:bg-stone-800">
                   <Image
-                    src={`https://img.youtube.com/vi/${study.youtubeId}/hqdefault.jpg`}
+                    src={cardThumbnail(study)}
                     alt={study.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"

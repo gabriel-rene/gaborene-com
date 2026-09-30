@@ -4,20 +4,31 @@ export interface CaseStudy {
   client: string
   year: number | string
   category: string
-  youtubeId: string
+  /** Either a YouTube case film or an in-page animated film with a poster frame */
+  youtubeId?: string
+  film?: "voyturisteando"
+  poster?: string
   summary: string
   body: string
   role?: string
   pullQuote?: { quote: string; attribution: string }
   awards?: string[]
+  /** Case study to point to at the end of this one */
+  next?: string
 }
 
 // Videos without a maxresdefault thumbnail on YouTube's CDN
 const NO_MAXRES = new Set(["GijvcjPvB7M"])
 
-export function ogThumbnail(youtubeId: string): string {
-  const quality = NO_MAXRES.has(youtubeId) ? "hqdefault" : "maxresdefault"
-  return `https://img.youtube.com/vi/${youtubeId}/${quality}.jpg`
+export function ogThumbnail(study: CaseStudy): string {
+  if (!study.youtubeId) return study.poster ?? "/opengraph-image"
+  const quality = NO_MAXRES.has(study.youtubeId) ? "hqdefault" : "maxresdefault"
+  return `https://img.youtube.com/vi/${study.youtubeId}/${quality}.jpg`
+}
+
+export function cardThumbnail(study: CaseStudy): string {
+  if (!study.youtubeId) return study.poster ?? "/opengraph-image"
+  return `https://img.youtube.com/vi/${study.youtubeId}/hqdefault.jpg`
 }
 
 const caseStudies: CaseStudy[] = [
@@ -68,6 +79,34 @@ The campaign used billboards and TV spots to drive traffic to these closed locat
 The campaign successfully turned previously closed restaurants into the busiest locations in town within just two nights.`,
     role:
       "Digital strategy, technology direction, and production, de la Cruz (Ogilvy)",
+  },
+  {
+    slug: "voyturisteando",
+    title: "VoyTuristeando.com",
+    client: "Puerto Rico Tourism Company",
+    year: "2022–2023",
+    category: "Digital Platform",
+    film: "voyturisteando",
+    poster: "/work/voyturisteando/poster.jpg",
+    summary:
+      "Ten months, from a WordPress blog to Pasaporte a la Aventura: field research with residents, a full content migration, a directory of Puerto Rico’s 78 municipalities built in four months, and a data dashboard whose picture of what residents want shaped the passport that launched six months later.",
+    body: `In 2022, voyturisteando.com was the Puerto Rico Tourism Company’s site for residents, and it was a WordPress blog doing a directory’s job. 637 directory entries, 190 events, and a handful of offers lived in one Divi install, filed under 84 municipality tags for 78 municipalities. Search for beaches in Cabo Rojo and you got nothing back. The homepage still had lorem ipsum on it.
+
+We had ten months, from the first audit to the launch of Pasaporte a la Aventura: four to build the directory, and six more to build the passport on top of it.
+
+Research came first. We sat with 42 residents in 14 municipalities: interviews, ride-alongs, and a diary study. Three findings shaped everything after. People plan by town, not by category. Weekend trips get decided on a phone, the night before. And people trust someone from the place more than any listing.
+
+So the new platform is organized by pueblo first. We moved the content off WordPress into a headless Strapi CMS with a Next.js front end, S3 for media, and Cloudflare at the edge, bilingual from the data model up. Every place got a municipality, a region, a category, and a pin. 48 overlapping filter tags became 6 categories and 39 sub-categories. One night, one script put 426 clean, deduplicated places on the map.
+
+The directory launched in month four. It loads in 1.4 seconds on a phone, down from 8.4.
+
+Then the site became a sensor. Every search carried a pueblo and every onboarding-quiz answer an interest, so we built a Power BI dashboard that showed the Tourism Company what residents look for, what they like, and when they plan. Searches peaked on Thursday nights, which is what the interviews had told us. That data became the content engine for the passport: which places to add, which pueblos to push, and which categories to lead with.
+
+By month nine, organic search traffic was up 212% on month one, all 78 municipalities had traffic every month, and the directory had grown from 426 places at launch to more than 1,000.
+
+The map was ready. In month ten, six months after the directory went live, we turned it into a game. The directory told us what people wanted. The passport would show us how they move around the island.`,
+    role: "Digital strategy, technology direction, and production, de la Cruz (Ogilvy)",
+    next: "pasaporte-aventura",
   },
   {
     slug: "pasaporte-aventura",

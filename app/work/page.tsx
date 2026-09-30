@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink } from "lucide-react"
-import caseStudies from "@/data/work"
+import caseStudies, { cardThumbnail } from "@/data/work"
 
 export const metadata: Metadata = {
   title: "Work",
@@ -87,7 +87,7 @@ export default function Work() {
             >
               <div className="relative aspect-video overflow-hidden bg-stone-100 dark:bg-stone-900">
                 <Image
-                  src={`https://img.youtube.com/vi/${study.youtubeId}/hqdefault.jpg`}
+                  src={cardThumbnail(study)}
                   alt={study.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -138,7 +138,7 @@ export default function Work() {
             >
               <div className="relative aspect-video overflow-hidden bg-stone-100 dark:bg-stone-900">
                 <Image
-                  src={`https://img.youtube.com/vi/${study.youtubeId}/hqdefault.jpg`}
+                  src={cardThumbnail(study)}
                   alt={study.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"

@@ -17,6 +17,15 @@
   --color-stone-800: #3C2D2D;
   --color-stone-900: #312424;
   --color-stone-950: #201818;
+
+  /* VoyTuristeando case film — from the voyturisteando.com brand */
+  --color-vt-ink:   #0A3237;
+  --color-vt-deep:  #106B73;
+  --color-vt-teal:  #23A5AC;
+  --color-vt-mist:  #E6F3F3;
+  --color-vt-sun:   #FFE750;
+  --color-vt-flame: #F92A15;
+  --color-vt-slate: #4D4D4D;
 }
 
 :root {

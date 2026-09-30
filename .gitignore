@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .firecrawl/
+
+# rendered case films (large binaries)
+/exports/

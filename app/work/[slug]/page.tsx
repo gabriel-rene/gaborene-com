@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 import caseStudies, { ogThumbnail } from "@/data/work"
+import { FilmPlayer } from "@/components/voyturisteando-film/film-player"
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://gaborene.com/work/${slug}`,
       images: [
         {
-          url: ogThumbnail(study.youtubeId),
+          url: ogThumbnail(study),
           alt: study.title,
         },
       ],
@@ -40,6 +41,7 @@ export default async function CaseStudy({ params }: Props) {
   const { slug } = await params
   const study = caseStudies.find((s) => s.slug === slug)
   if (!study) notFound()
+  const next = study.next ? caseStudies.find((s) => s.slug === study.next) : undefined
 
   const caseStudySchema = {
     "@context": "https://schema.org",
@@ -58,14 +60,18 @@ export default async function CaseStudy({ params }: Props) {
     ...(study.awards && study.awards.length > 0
       ? { award: study.awards }
       : {}),
-    video: {
-      "@type": "VideoObject",
-      name: study.title,
-      description: study.summary,
-      thumbnailUrl: ogThumbnail(study.youtubeId),
-      embedUrl: `https://www.youtube-nocookie.com/embed/${study.youtubeId}`,
-      uploadDate: `${String(study.year).slice(0, 4)}-01-01`,
-    },
+    ...(study.youtubeId
+      ? {
+          video: {
+            "@type": "VideoObject",
+            name: study.title,
+            description: study.summary,
+            thumbnailUrl: ogThumbnail(study),
+            embedUrl: `https://www.youtube-nocookie.com/embed/${study.youtubeId}`,
+            uploadDate: `${String(study.year).slice(0, 4)}-01-01`,
+          },
+        }
+      : { image: `https://gaborene.com${ogThumbnail(study)}` }),
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
@@ -92,7 +98,11 @@ export default async function CaseStudy({ params }: Props) {
   }
 
   return (
-    <main className="flex flex-col flex-1 px-8 pt-32 pb-16 max-w-3xl mx-auto w-full">
+    <main
+      className={`flex flex-col flex-1 px-8 pt-32 pb-16 mx-auto w-full ${
+        study.film ? "max-w-5xl" : "max-w-3xl"
+      }`}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }}
@@ -110,7 +120,7 @@ export default async function CaseStudy({ params }: Props) {
           <p className="text-sm text-stone-600 dark:text-stone-400 uppercase tracking-widest">
             {study.client}, {study.year}
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-stone-900 dark:text-stone-100">
+          <h1 className="font-serif text-[1.75rem] sm:text-4xl md:text-5xl text-stone-900 dark:text-stone-100">
             {study.title}
           </h1>
           <p className="text-stone-600 dark:text-stone-400 text-lg leading-relaxed">
@@ -126,17 +136,21 @@ export default async function CaseStudy({ params }: Props) {
           )}
         </div>
 
-        <div className="aspect-video w-full">
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${study.youtubeId}`}
-            title={study.title}
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="w-full h-full"
-          />
-        </div>
+        {study.film === "voyturisteando" && <FilmPlayer />}
+
+        {study.youtubeId && (
+          <div className="aspect-video w-full">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${study.youtubeId}`}
+              title={study.title}
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+        )}
 
         <div className="flex flex-col gap-6 max-w-xl">
           {study.pullQuote && (
@@ -169,6 +183,24 @@ export default async function CaseStudy({ params }: Props) {
                 ))}
               </ul>
             </div>
+          )}
+
+          {next && (
+            <Link
+              href={`/work/${next.slug}`}
+              className="group flex flex-col gap-1 pt-4 border-t border-stone-200 dark:border-stone-800"
+            >
+              <span className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest">
+                Watch next
+              </span>
+              <span className="flex items-center gap-2 font-serif text-2xl text-stone-900 dark:text-stone-100 group-hover:text-stone-600 dark:group-hover:text-stone-400 transition-colors">
+                {next.title}
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              </span>
+              <span className="text-sm text-stone-600 dark:text-stone-400">
+                {next.client}, {next.year}
+              </span>
+            </Link>
           )}
         </div>
       </div>

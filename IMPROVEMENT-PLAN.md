@@ -29,6 +29,8 @@ below is already fixed in the local working tree but NOT live:
 canonical tag, OG url, sitemap entry, robots sitemap line, and schema `@id`
 points to the apex. Google is told the canonical is a URL that redirects.
 
+Still open as of 2026-09-29: apex still 308s to `www`.
+
 - [ ] In Vercel domain settings, make `gaborene.com` the primary domain and
       redirect `www` → apex (matches all code URLs; no code change needed)
 - [ ] After the flip, verify `curl -I https://www.gaborene.com` 308s to apex
@@ -85,8 +87,9 @@ points to the apex. Google is told the canonical is a URL that redirects.
       data:; font-src 'self'; frame-src www.youtube-nocookie.com;
       connect-src 'self'; base-uri 'self'; form-action 'self';
       frame-ancestors 'none'` (verify nothing breaks in preview first).
-- [ ] Existing headers (nosniff, X-Frame-Options, Referrer-Policy,
-      Permissions-Policy) go live with the P0 deploy — verify.
+- [x] Existing headers (nosniff, X-Frame-Options, Referrer-Policy,
+      Permissions-Policy) go live with the P0 deploy — verified live
+      with CSP, 2026-09-29.
 - [ ] Accepted tradeoff (no action): plaintext mailto + email in JSON-LD
       is harvestable; fine for a portfolio that wants to be contacted.
 - Attack surface is already minimal: fully static, no forms, no API
@@ -116,6 +119,17 @@ points to the apex. Google is told the canonical is a URL that redirects.
       to a `find`-based lookup.
 - [x] Real alt text for `gabo-cud.jpg` ("Speaking engagement") and
       `gabo-turismo.jpg` ("Tourism forum") in `speaking-gallery.tsx`.
+
+---
+
+## Shipped outside this plan
+
+- Press section on /speaking with AI-related mentions, incl. WAPA TV
+  ARPR convention (508ed0d, 07d01bf)
+- El Vocero 2026 press mention on /about (554719e)
+- os-notes posts: Quipu knowledge graph store, Qwen3.8 27B on Mac Studio
+  (32f9591, bd63b34)
+- `PRODUCT.md` added (users, positioning, brand voice) — not yet committed
 
 ---
 
