@@ -34,6 +34,20 @@ const labProjects: LabProject[] = [
     github: "https://github.com/gabriel-rene/world-cup-26",
   },
   {
+    name: "El Ancón de Loíza",
+    description:
+      "A 3D reconstruction of the hand-powered river ferry that crossed the Río Grande de Loíza from the 1820s until a bridge replaced it in 1986. Pick a decade and watch the ferry, the mangroves and the crossing change. Every detail comes from a sourced research dossier; anything inferred is labeled as inferred. Work in progress.",
+    stack: "React Three Fiber · TypeScript · OpenStreetMap",
+    github: "https://github.com/gabriel-rene/ancon-de-loiza",
+  },
+  {
+    name: "Style Repo",
+    description:
+      "A browsable reference library of graphic design, illustration and typographic styles, from Victorian ephemera to WPA posters. One YAML file per style, enriched from Getty AAT, Wikidata and open-license museum images. Dates and origins that I can’t verify stay out.",
+    stack: "Astro · Node · SQLite · Wikidata",
+    github: "https://github.com/gabriel-rene/style-repo",
+  },
+  {
     name: "gaborene.com",
     description:
       "This site. Statically generated, obsessively small, and part of the experiment: designed and built end to end with AI in the loop.",
