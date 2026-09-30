@@ -111,7 +111,7 @@ Then the site became a sensor. Every search carried a pueblo and every onboardin
 By month nine, organic search traffic was up 212% on month one, all 78 municipalities had traffic every month, and the directory had grown from 426 places at launch to more than 1,000.
 
 The map was ready. In month ten, six months after the directory went live, we turned it into a game. The directory told us what people wanted. The passport would show us how they move around the island.`,
-    role: "Digital strategy, technology direction, and production, de la Cruz (Ogilvy)",
+    role: "Strategy, tech lead, UX/UI lead, and art direction, de la Cruz (Ogilvy)",
     next: "pasaporte-aventura",
   },
   {
@@ -128,8 +128,7 @@ The map was ready. In month ten, six months after the directory went live, we tu
 In 2023, the Puerto Rico Tourism Company unveiled Passport to Adventure, a gamified digital platform allowing users to explore over 700 destinations, collect digital badges, and compete for monthly prizes. Groundbreaking use of geolocation technology coupled with RFID-enabled signage facilitated physical check-ins at locations across the island.
 
 Using Design Thinking methodology, the platform was built around user-centric and accessible design on mobile devices. The initiative was an unprecedented success, boosting the local economy across all 78 municipalities and generating crucial data on local tourist behavior to inform future improvements.`,
-    role:
-      "Digital strategy, technology direction, and production, de la Cruz (Ogilvy)",
+    role: "Strategy, tech lead, UX/UI lead, and art direction, de la Cruz (Ogilvy)",
     awards: [
       "SME Digital Awards 2024, Gold: Digital User Experience and Interface Design",
       "SME Digital Awards 2024, Gold: Tech Solution Development",

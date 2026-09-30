@@ -63,7 +63,7 @@ Entonces el sitio se convirtió en un sensor. Cada búsqueda traía un pueblo y 
 Para el mes nueve, el tráfico de búsqueda orgánica había subido 212% comparado con el mes uno, los 78 municipios tenían tráfico todos los meses, y el directorio había crecido de 426 lugares en el lanzamiento a más de 1,000.
 
 El mapa estaba listo. En el mes diez, seis meses después de que saliera el directorio, lo convertimos en un juego. El directorio nos dijo lo que la gente quería. El pasaporte nos iba a enseñar cómo se mueve por la isla.`,
-    role: ROLE_DLC,
+    role: "Estrategia, líder de tecnología, líder de UX/UI y dirección de arte, de la Cruz (Ogilvy)",
   },
   "pasaporte-aventura": {
     title: "Pasaporte a la Aventura",
@@ -75,7 +75,7 @@ El mapa estaba listo. En el mes diez, seis meses después de que saliera el dire
 En 2023, la Compañía de Turismo de Puerto Rico presentó Pasaporte a la Aventura, una plataforma digital gamificada que permite explorar más de 700 destinos, coleccionar insignias digitales y competir por premios mensuales. Un uso pionero de la geolocalización, combinado con rótulos con RFID, hizo posible el check-in físico en lugares por toda la isla.
 
 Con la metodología de Design Thinking, la plataforma se construyó alrededor de un diseño centrado en el usuario y accesible en dispositivos móviles. La iniciativa fue un éxito sin precedentes: impulsó la economía local en los 78 municipios y generó datos cruciales sobre el comportamiento del turista local para guiar mejoras futuras.`,
-    role: ROLE_DLC,
+    role: "Estrategia, líder de tecnología, líder de UX/UI y dirección de arte, de la Cruz (Ogilvy)",
     awards: [
       "SME Digital Awards 2024, Oro: Diseño de Experiencia e Interfaz de Usuario Digital",
       "SME Digital Awards 2024, Oro: Desarrollo de Soluciones Tecnológicas",
