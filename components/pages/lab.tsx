@@ -1,5 +1,4 @@
-import Link from "next/link"
-import { ArrowRight, ExternalLink } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 import { getLabProjects } from "@/lib/content"
 import { routeAlternates, url, type Locale } from "@/lib/i18n"
 import { pageMetadata, SITE_NAME } from "@/lib/site-metadata"
@@ -22,8 +21,6 @@ const COPY = {
       "I build to understand. These are personal projects, made on nights and weekends, mostly with AI in the loop. That last part is the point: I teach human-centered AI implementation because I practice it.",
     private: "Private",
     live: "Live",
-    notesTitle: "Notes from the OS",
-    notesBody: "Research digests written by the machine, curated by me.",
   },
   es: {
     title: "Lab",
@@ -42,8 +39,6 @@ const COPY = {
       "Construyo para entender. Estos son proyectos personales, hechos de noche y en fines de semana, casi siempre con IA en el proceso. Eso último es el punto: enseño implementación de IA centrada en las personas porque la practico.",
     private: "Privado",
     live: "En vivo",
-    notesTitle: "Notes from the OS",
-    notesBody: "Resúmenes de investigación escritos por la máquina, curados por mí. En inglés.",
   },
 } satisfies Record<Locale, unknown>
 
@@ -144,23 +139,6 @@ export function LabPage({ locale }: { locale: Locale }) {
             </li>
           ))}
         </ul>
-
-        <Link
-          href="/lab/notes"
-          hrefLang={locale === "en" ? undefined : "en"}
-          className="group flex flex-col gap-2 max-w-xl pt-8 border-t border-stone-200 dark:border-stone-800"
-        >
-          <h2 className="font-serif text-2xl text-stone-900 dark:text-stone-100 group-hover:text-stone-500 dark:group-hover:text-stone-400 transition-colors flex items-center gap-2">
-            <span lang="en">{copy.notesTitle}</span>
-            <ArrowRight
-              size={18}
-              className="transition-transform group-hover:translate-x-1"
-            />
-          </h2>
-          <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
-            {copy.notesBody}
-          </p>
-        </Link>
       </div>
     </main>
   )

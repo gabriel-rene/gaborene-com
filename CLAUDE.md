@@ -33,7 +33,7 @@ app/
     layout.tsx         # English root layout (html lang="en")
     page.tsx           # Landing page: role selector + featured work
     not-found.tsx
-    about/ work/ work/[slug]/ speaking/ lab/ lab/notes/ lab/notes/[slug]/
+    about/ work/ work/[slug]/ speaking/ lab/
   es/                  # Spanish routes: /es, /es/sobre-mi, /es/trabajo,
                        # /es/trabajo/[slug], /es/conferencias, /es/lab
     layout.tsx         # Spanish root layout (html lang="es")
@@ -56,7 +56,7 @@ data/
   work.ts              # Case studies content (+ work.es.ts)
   timeline.ts          # Career timeline, rendered on About (+ timeline.es.ts)
   press.ts, lab.ts     # (+ press.es.ts, lab.es.ts)
-content/os-notes/      # Machine-written Lab notes: English only, noindexed
+content/os-notes/      # Machine-written notes: not published (turned off 2026-09-30)
 public/
   speaking/            # Speaking engagement photos
   # Real assets only — no placeholders
@@ -105,8 +105,8 @@ No marketing fluff. No superlatives.
 
 The site is **bilingual: English (root) and Spanish (`/es`)**. Every
 copy change needs both languages; Spanish is Puerto Rican Spanish in the
-same voice, not a literal translation. Lab notes and the VoyTuristeando
-case film stay English. All code, comments, and variable names are in
+same voice, not a literal translation. The VoyTuristeando case film stays
+English. All code, comments, and variable names are in
 English. Use typographic quotes/apostrophes (’ “ ”) in copy.
 
 ---

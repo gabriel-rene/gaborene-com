@@ -27,7 +27,6 @@ const PAGES: { key: RouteKey; updated: Date; priority: number }[] = [
 
 const LOCALES: Locale[] = ["en", "es"]
 
-// Lab notes are machine-written and noindexed, so they stay out of the sitemap
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = PAGES.flatMap(({ key, updated, priority }) =>
     LOCALES.map((locale) => {
