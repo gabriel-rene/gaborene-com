@@ -79,7 +79,7 @@ export function WorkPage({ locale }: { locale: Locale }) {
       <JsonLd data={workPageSchema} />
       <div className="flex flex-col gap-12">
         <div className="flex items-end justify-between gap-4">
-          <h1 className="font-serif text-4xl md:text-5xl text-stone-900 dark:text-stone-100">
+          <h1 className="font-serif text-2xl md:text-3xl text-stone-900 dark:text-stone-100">
             {copy.title}
           </h1>
           <a
