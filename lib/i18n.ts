@@ -7,6 +7,7 @@ const ROUTES = {
   work: { en: "/work", es: "/es/trabajo" },
   speaking: { en: "/speaking", es: "/es/conferencias" },
   lab: { en: "/lab", es: "/es/lab" },
+  workshops: { en: "/workshops", es: "/es/talleres" },
   about: { en: "/about", es: "/es/sobre-mi" },
 } as const
 
