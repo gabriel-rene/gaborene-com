@@ -51,8 +51,8 @@ const KEYWORDS: Record<Locale, string[]> = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#E0D7D7" },
-    { media: "(prefers-color-scheme: dark)", color: "#312424" },
+    { media: "(prefers-color-scheme: light)", color: "#E6E2DD" },
+    { media: "(prefers-color-scheme: dark)", color: "#2B2826" },
   ],
 }
 

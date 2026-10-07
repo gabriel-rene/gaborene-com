@@ -24,27 +24,31 @@ export function RoleSelector({
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap gap-x-6 gap-y-2">
-        {identities.map((identity) => (
-          <button
-            key={identity.role}
-            onClick={() =>
-              setActive(active?.role === identity.role ? null : identity)
-            }
-            aria-pressed={active?.role === identity.role}
-            className={`font-serif text-lg italic transition-colors ${
-              active?.role === identity.role
-                ? "text-stone-900 dark:text-stone-100"
-                : "text-stone-600 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300"
-            }`}
-          >
-            {identity.role}
-            {identity.suffix && active?.role === identity.role && (
-              <span className="not-italic text-sm">{identity.suffix}</span>
-            )}
-          </button>
-        ))}
-      </div>
+      <ul className="flex flex-col">
+        {identities.map((identity) => {
+          const isActive = active?.role === identity.role
+          return (
+            <li key={identity.role}>
+              <button
+                onClick={() => setActive(isActive ? null : identity)}
+                aria-pressed={isActive}
+                className={`text-left font-serif text-base md:text-lg leading-snug transition-colors ${
+                  isActive
+                    ? "text-stone-900 dark:text-stone-100"
+                    : "text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100"
+                }`}
+              >
+                {identity.role}
+                {identity.suffix && isActive && (
+                  <span className="block sm:inline text-xs text-stone-600 dark:text-stone-400">
+                    {identity.suffix}
+                  </span>
+                )}
+              </button>
+            </li>
+          )
+        })}
+      </ul>
 
       <div>
         <AnimatePresence mode="wait">
@@ -57,19 +61,19 @@ export function RoleSelector({
               transition={{ duration: 0.2 }}
               className="max-w-xl"
             >
-              <p className="text-stone-600 dark:text-stone-400 leading-relaxed whitespace-pre-line">
+              <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed whitespace-pre-line text-pretty">
                 {active.description}
               </p>
               {active.engagements && (
                 <>
                   <EngagementList
                     engagements={active.engagements}
-                    className="mt-4 space-y-1"
+                    className="mt-6 space-y-1.5"
                   />
                   <SpeakingGallery locale={locale} />
                   <Link
                     href={path(locale, "speaking")}
-                    className="inline-block mt-4 text-sm text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+                    className="inline-block mt-5 text-xs text-stone-600 dark:text-stone-400 underline underline-offset-4 decoration-stone-400 dark:decoration-stone-600 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                   >
                     {MORE_ON_SPEAKING[locale]}
                   </Link>

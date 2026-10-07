@@ -83,7 +83,7 @@ public/
 ## Design system
 
 **Color palette:** Custom brand scale overriding Tailwind stone in `globals.css` — 
-light background `#E0D7D7`, dark background `#312424`  
+light background `#E6E2DD`, dark background `#2B2826` (warm dark grey)  
 **Dark mode:** Class-based via `next-themes`, always support both modes  
 **Typography:** Datatype for headings (`font-serif`), PP Neue York for body  
 **Contrast:** Body and label text must meet WCAG AA (4.5:1) — on the light 

@@ -10,14 +10,14 @@ export function Footer({ locale }: { locale: Locale }) {
   const copy = COPY[locale]
   return (
     <footer className="px-8 py-10 mt-auto border-t border-stone-200 dark:border-stone-800">
-      <div className="max-w-3xl mx-auto w-full flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-        <div className="flex flex-col gap-1">
-          <p className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest">
+      <div className="max-w-3xl mx-auto w-full flex flex-col sm:flex-row sm:items-end justify-between gap-8">
+        <div className="flex flex-col gap-2">
+          <p className="text-xs text-stone-600 dark:text-stone-400">
             {copy.prompt}
           </p>
           <a
             href="mailto:gabriel@gaborene.com"
-            className="font-serif italic text-lg text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors w-fit"
+            className="font-serif text-base text-stone-900 dark:text-stone-100 hover:text-stone-600 dark:hover:text-stone-400 transition-colors w-fit break-all sm:break-normal"
           >
             gabriel@gaborene.com
           </a>
