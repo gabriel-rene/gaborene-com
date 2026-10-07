@@ -23,14 +23,14 @@ const COPY: Record<
     alsoA: "I am also a",
     selected: "Selected work",
     all: "All work",
-    photoAlt: "Gabriel speaking at the El Salvador National Marketing Association",
+    photoAlt: "Gabriel on stage at MKT Day, El Salvador National Marketing Association",
   },
   es: {
     record: "San Juan, Puerto Rico. Veinticinco años en esto. Diecisiete cosas a la vez.",
     alsoA: "También soy",
     selected: "Trabajo selecto",
     all: "Todo el trabajo",
-    photoAlt: "Gabriel dando una charla en la Asociación Nacional de Mercadeo de El Salvador",
+    photoAlt: "Gabriel en tarima en MKT Day, Asociación Nacional de Mercadeo de El Salvador",
   },
 }
 
@@ -44,15 +44,12 @@ export function HomePage({ locale }: { locale: Locale }) {
 
   return (
     <main className="flex flex-col flex-1 w-full max-w-3xl mx-auto">
-      <section className="px-8 pt-24">
-        <h1 className="font-serif text-2xl md:text-3xl leading-tight text-balance text-stone-900 dark:text-stone-100 max-w-[18ch]">
-          Gabriel René Rodríguez-Rovira
-        </h1>
-      </section>
-
-      <section className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-x-10 gap-y-8 px-8 pt-5 pb-16">
+      <section className="grid lg:grid-cols-[minmax(0,1fr)_auto] gap-x-16 gap-y-10 px-8 pt-24 pb-16">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-3">
+            <h1 className="font-serif text-2xl md:text-3xl leading-tight text-balance text-stone-900 dark:text-stone-100 max-w-[18ch]">
+              Gabriel René Rodríguez-Rovira
+            </h1>
             <p className="font-serif text-base leading-snug text-accent text-balance">
               {JOB_TITLE[locale]}
             </p>
@@ -69,14 +66,14 @@ export function HomePage({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div className="relative aspect-square w-full max-w-[16rem] lg:max-w-xs lg:justify-self-end lg:sticky lg:top-28 lg:self-start">
+        <div className="relative aspect-[3/4] w-full max-w-[14rem] lg:w-64 lg:max-w-none lg:sticky lg:top-28 lg:self-start">
           <Image
-            src="/speaking/gabo-el-salvador.jpg"
+            src="/speaking/gabo-mkt-day.jpg"
             alt={copy.photoAlt}
             fill
             priority
             className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            sizes="(max-width: 1024px) 224px, 256px"
           />
         </div>
       </section>
