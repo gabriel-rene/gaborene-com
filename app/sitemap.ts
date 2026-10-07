@@ -14,6 +14,7 @@ const UPDATED = {
   work: new Date("2026-09-30"),
   speaking: new Date("2026-09-30"),
   lab: new Date("2026-09-30"),
+  workshops: new Date("2026-10-06"),
   caseStudyDefault: new Date("2026-09-30"),
 }
 
@@ -23,6 +24,7 @@ const PAGES: { key: RouteKey; updated: Date; priority: number }[] = [
   { key: "work", updated: UPDATED.work, priority: 0.9 },
   { key: "speaking", updated: UPDATED.speaking, priority: 0.8 },
   { key: "lab", updated: UPDATED.lab, priority: 0.7 },
+  { key: "workshops", updated: UPDATED.workshops, priority: 0.7 },
 ]
 
 const LOCALES: Locale[] = ["en", "es"]

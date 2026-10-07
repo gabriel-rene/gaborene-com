@@ -117,7 +117,7 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
           <p className="text-sm text-stone-600 dark:text-stone-400 uppercase tracking-widest">
             {study.client}, {study.year}
           </p>
-          <h1 className="font-serif text-[1.75rem] sm:text-4xl md:text-5xl text-stone-900 dark:text-stone-100">
+          <h1 className="font-serif text-[1.75rem] sm:text-2xl md:text-3xl text-stone-900 dark:text-stone-100">
             {study.title}
           </h1>
           <p className="text-stone-600 dark:text-stone-400 text-lg leading-relaxed">

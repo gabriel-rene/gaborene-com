@@ -5,18 +5,21 @@
 @theme inline {
   --font-serif: var(--font-datatype);
 
-  /* Brand stone scale — light: #E0D7D7 family, dark: #312424 family */
-  --color-stone-50:  #EAE3E3;
-  --color-stone-100: #E0D7D7;
-  --color-stone-200: #CAB9B9;
-  --color-stone-300: #B3A0A0;
-  --color-stone-400: #9C8787;
-  --color-stone-500: #846E6E;
-  --color-stone-600: #635050;
-  --color-stone-700: #4E3C3C;
-  --color-stone-800: #3C2D2D;
-  --color-stone-900: #312424;
-  --color-stone-950: #201818;
+  /* Accent — monochrome for now: a mid grey one step off the text color */
+  --color-accent: var(--accent);
+
+  /* Brand stone scale — warm dark grey: light #E6E2DD family, dark #2B2826 family */
+  --color-stone-50:  #EDEAE6;
+  --color-stone-100: #E6E2DD;
+  --color-stone-200: #CFC9C2;
+  --color-stone-300: #B5AEA6;
+  --color-stone-400: #9A938B;
+  --color-stone-500: #7E7770;
+  --color-stone-600: #605A54;
+  --color-stone-700: #4B4641;
+  --color-stone-800: #3A3633;
+  --color-stone-900: #2B2826;
+  --color-stone-950: #1C1A18;
 
   /* VoyTuristeando case film — from the voyturisteando.com brand */
   --color-vt-ink:   #0A3237;
@@ -29,13 +32,15 @@
 }
 
 :root {
-  --background: #E0D7D7;
-  --foreground: #312424;
+  --background: #E6E2DD;
+  --foreground: #2B2826;
+  --accent: #4B4641;
 }
 
 .dark {
-  --background: #312424;
-  --foreground: #E0D7D7;
+  --background: #2B2826;
+  --foreground: #E6E2DD;
+  --accent: #B5AEA6;
 }
 
 body {
