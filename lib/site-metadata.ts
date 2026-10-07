@@ -56,6 +56,16 @@ export const viewport: Viewport = {
   ],
 }
 
+/** The generated share image, served by `app/(en)/og` and `app/es/og`. */
+export function shareImage(locale: Locale) {
+  return {
+    url: locale === "en" ? "/og" : "/es/og",
+    width: 1200,
+    height: 630,
+    alt: `${SITE_NAME} — ${JOB_TITLE[locale]}`,
+  }
+}
+
 export function siteMetadata(locale: Locale): Metadata {
   const title = `${SITE_NAME} | ${JOB_TITLE[locale]}`
   return {
@@ -73,11 +83,13 @@ export function siteMetadata(locale: Locale): Metadata {
       siteName: SITE_NAME,
       title,
       description: DESCRIPTION[locale],
+      images: [shareImage(locale)],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description: DESCRIPTION[locale],
+      images: [shareImage(locale)],
     },
     robots: {
       index: true,
@@ -123,7 +135,13 @@ export function pageMetadata({
       title: `${title} | ${SITE_NAME}`,
       description,
       url: alternates.canonical,
-      ...(images ? { images } : {}),
+      images: images ?? [shareImage(locale)],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${SITE_NAME}`,
+      description,
+      images: images ?? [shareImage(locale)],
     },
     alternates,
   }

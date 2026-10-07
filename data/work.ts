@@ -27,13 +27,13 @@ export type CaseStudyText = Pick<
 const NO_MAXRES = new Set(["GijvcjPvB7M"])
 
 export function ogThumbnail(study: CaseStudy): string {
-  if (!study.youtubeId) return study.poster ?? "/opengraph-image"
+  if (!study.youtubeId) return study.poster ?? "/og"
   const quality = NO_MAXRES.has(study.youtubeId) ? "hqdefault" : "maxresdefault"
   return `https://img.youtube.com/vi/${study.youtubeId}/${quality}.jpg`
 }
 
 export function cardThumbnail(study: CaseStudy): string {
-  if (!study.youtubeId) return study.poster ?? "/opengraph-image"
+  if (!study.youtubeId) return study.poster ?? "/og"
   return `https://img.youtube.com/vi/${study.youtubeId}/hqdefault.jpg`
 }
 
