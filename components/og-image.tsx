@@ -12,7 +12,7 @@ const AWARDS = "Cannes Lions · The One Show · El Ojo · Effie · FIAP"
 export async function ogImage(locale: Locale) {
   const [datatype, photo] = await Promise.all([
     readFile(join(process.cwd(), "app/fonts/Datatype-Regular.ttf")),
-    readFile(join(process.cwd(), "public/speaking/gabo-el-salvador.jpg")),
+    readFile(join(process.cwd(), "public/speaking/gabo-mkt-day.jpg")),
   ])
   const photoSrc = `data:image/jpeg;base64,${photo.toString("base64")}`
 
@@ -71,7 +71,7 @@ export async function ogImage(locale: Locale) {
           alt=""
           width={480}
           height={630}
-          style={{ width: 480, height: 630, objectFit: "cover", objectPosition: "60% 50%" }}
+          style={{ width: 480, height: 630, objectFit: "cover", objectPosition: "50% 30%" }}
         />
       </div>
     ),
