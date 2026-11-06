@@ -60,82 +60,12 @@ const person = {
   performerIn: [
     {
       "@type": "Event",
-      name: "AI and Human-Centered Design Speaker",
-      organizer: {
-        "@type": "Organization",
-        name: "Puerto Rico Association of Advertising Agencies",
-        address: { "@type": "PostalAddress", addressRegion: "Puerto Rico" },
-      },
-    },
-    {
-      "@type": "Event",
-      name: "AI Speaker",
-      organizer: {
-        "@type": "Organization",
-        name: "Puerto Rico Association of Public Relations",
-        address: { "@type": "PostalAddress", addressRegion: "Puerto Rico" },
-      },
-    },
-    {
-      "@type": "Event",
-      name: "AI Panelist and Curriculum Development Consultant",
-      organizer: {
-        "@type": "EducationalOrganization",
-        name: "University of Puerto Rico, Faculty of Communication Studies",
-        address: { "@type": "PostalAddress", addressRegion: "Puerto Rico" },
-      },
-    },
-    {
-      "@type": "Event",
-      name: "AI Speaker and Educator",
-      organizer: {
-        "@type": "Organization",
-        name: "El Salvador National Marketing Association",
-      },
-    },
-    {
-      "@type": "Event",
-      name: "AI Speaker",
-      organizer: {
-        "@type": "Organization",
-        name: "International Women's Economic Forum",
-      },
-    },
-    {
-      "@type": "Event",
-      name: "AI Speaker, Puerto Rico Next Tourism Summit",
-      organizer: {
-        "@type": "Organization",
-        name: "Puerto Rico Next Tourism Summit",
-        address: { "@type": "PostalAddress", addressRegion: "Puerto Rico" },
-      },
-    },
-    {
-      "@type": "Event",
-      name: "Recurrent AI Speaker, Chamber of Commerce SMB Forums",
-      organizer: {
-        "@type": "Organization",
-        name: "Puerto Rico Chamber of Commerce",
-        address: { "@type": "PostalAddress", addressRegion: "Puerto Rico" },
-      },
-    },
-    {
-      "@type": "Event",
-      name: "AI Guest, Podcast ADQLEB with Alberto Deida",
-      organizer: { "@type": "Organization", name: "ADQLEB Podcast" },
-    },
-    {
-      "@type": "Event",
-      name: "AI Guest, Podcast Neptuno Networks The Orbit",
-      organizer: { "@type": "Organization", name: "Neptuno Networks" },
-    },
-    {
-      "@type": "Event",
       name: "Puerto Rico Advertising Conference (PRAD) 2026",
       description: "Talk: “AI won’t take your job, but it will change it”",
       startDate: "2026-09-18",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      performer: { "@id": `${BASE_URL}/#person` },
       location: {
         "@type": "Place",
         name: "Museo de Arte de Puerto Rico",
@@ -154,6 +84,7 @@ const person = {
       startDate: "2026-09-14T10:00:00-04:00",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      performer: { "@id": `${BASE_URL}/#person` },
       location: {
         "@type": "Place",
         name: "Universidad Ana G. Méndez, Cupey",
@@ -173,6 +104,7 @@ const person = {
       endDate: "2026-05-30T17:00:00-04:00",
       eventStatus: "https://schema.org/EventScheduled",
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      performer: { "@id": `${BASE_URL}/#person` },
       location: {
         "@type": "Place",
         name: "Engine-4",
